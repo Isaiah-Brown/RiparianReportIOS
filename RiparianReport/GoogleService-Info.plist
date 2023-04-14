@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>873314762207-rep77ot1or7ngkf419h7g017e7opeid3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.873314762207-rep77ot1or7ngkf419h7g017e7opeid3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAqE94ueDhYDL3XaGVwi-ERasj_AO3gNeU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>873314762207</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dill.group.RiparianReport</string>
+	<key>PROJECT_ID</key>
+	<string>allianceforthebayapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>allianceforthebayapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:873314762207:ios:fce114233afa82cec6d86a</string>
+	<key>DATABASE_URL</key>
+	<string>https://allianceforthebayapp-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

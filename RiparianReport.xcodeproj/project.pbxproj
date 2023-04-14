@@ -14,6 +14,9 @@
 		2E8B28F329E9A3D800CF38C6 /* RiparianReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28F229E9A3D800CF38C6 /* RiparianReportTests.swift */; };
 		2E8B28FD29E9A3D800CF38C6 /* RiparianReportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28FC29E9A3D800CF38C6 /* RiparianReportUITests.swift */; };
 		2E8B28FF29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28FE29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift */; };
+		2E8B290C29E9AAE700CF38C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B290B29E9AAE700CF38C6 /* GoogleService-Info.plist */; };
+		2E8B290F29E9B03400CF38C6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8B290E29E9B03400CF38C6 /* FirebaseAuth */; };
+		2E8B291129E9B03400CF38C6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8B291029E9B03400CF38C6 /* FirebaseDatabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,7 @@
 		2E8B28F829E9A3D800CF38C6 /* RiparianReportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiparianReportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8B28FC29E9A3D800CF38C6 /* RiparianReportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportUITests.swift; sourceTree = "<group>"; };
 		2E8B28FE29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2E8B290B29E9AAE700CF38C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8B291129E9B03400CF38C6 /* FirebaseDatabase in Frameworks */,
+				2E8B290F29E9B03400CF38C6 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,7 @@
 		2E8B28E029E9A3D300CF38C6 /* RiparianReport */ = {
 			isa = PBXGroup;
 			children = (
+				2E8B290B29E9AAE700CF38C6 /* GoogleService-Info.plist */,
 				2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */,
 				2E8B28E329E9A3D300CF38C6 /* ContentView.swift */,
 				2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */,
@@ -143,6 +150,10 @@
 			dependencies = (
 			);
 			name = RiparianReport;
+			packageProductDependencies = (
+				2E8B290E29E9B03400CF38C6 /* FirebaseAuth */,
+				2E8B291029E9B03400CF38C6 /* FirebaseDatabase */,
+			);
 			productName = RiparianReport;
 			productReference = 2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +226,9 @@
 				Base,
 			);
 			mainGroup = 2E8B28D529E9A3D300CF38C6;
+			packageReferences = (
+				2E8B290D29E9B03400CF38C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2E8B28DF29E9A3D300CF38C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8B28E929E9A3D700CF38C6 /* Preview Assets.xcassets in Resources */,
+				2E8B290C29E9AAE700CF38C6 /* GoogleService-Info.plist in Resources */,
 				2E8B28E629E9A3D700CF38C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +594,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E8B290D29E9B03400CF38C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E8B290E29E9B03400CF38C6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E8B290D29E9B03400CF38C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2E8B291029E9B03400CF38C6 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E8B290D29E9B03400CF38C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2E8B28D629E9A3D300CF38C6 /* Project object */;
 }
