@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E8B28E229E9A3D300CF38C6 /* RiparianReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */; };
+		2E8B28E429E9A3D300CF38C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E329E9A3D300CF38C6 /* ContentView.swift */; };
+		2E8B28E629E9A3D700CF38C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */; };
+		2E8B28E929E9A3D700CF38C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B28E829E9A3D700CF38C6 /* Preview Assets.xcassets */; };
+		2E8B28F329E9A3D800CF38C6 /* RiparianReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28F229E9A3D800CF38C6 /* RiparianReportTests.swift */; };
+		2E8B28FD29E9A3D800CF38C6 /* RiparianReportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28FC29E9A3D800CF38C6 /* RiparianReportUITests.swift */; };
+		2E8B28FF29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28FE29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E8B28EF29E9A3D800CF38C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E8B28D629E9A3D300CF38C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E8B28DD29E9A3D300CF38C6;
+			remoteInfo = RiparianReport;
+		};
+		2E8B28F929E9A3D800CF38C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E8B28D629E9A3D300CF38C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E8B28DD29E9A3D300CF38C6;
+			remoteInfo = RiparianReport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiparianReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportApp.swift; sourceTree = "<group>"; };
+		2E8B28E329E9A3D300CF38C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E8B28E829E9A3D700CF38C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E8B28EE29E9A3D800CF38C6 /* RiparianReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiparianReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8B28F229E9A3D800CF38C6 /* RiparianReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportTests.swift; sourceTree = "<group>"; };
+		2E8B28F829E9A3D800CF38C6 /* RiparianReportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiparianReportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8B28FC29E9A3D800CF38C6 /* RiparianReportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportUITests.swift; sourceTree = "<group>"; };
+		2E8B28FE29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E8B28DB29E9A3D300CF38C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E8B28EB29E9A3D800CF38C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E8B28F529E9A3D800CF38C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E8B28D529E9A3D300CF38C6 = {
+			isa = PBXGroup;
+			children = (
+				2E8B28E029E9A3D300CF38C6 /* RiparianReport */,
+				2E8B28F129E9A3D800CF38C6 /* RiparianReportTests */,
+				2E8B28FB29E9A3D800CF38C6 /* RiparianReportUITests */,
+				2E8B28DF29E9A3D300CF38C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E8B28DF29E9A3D300CF38C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */,
+				2E8B28EE29E9A3D800CF38C6 /* RiparianReportTests.xctest */,
+				2E8B28F829E9A3D800CF38C6 /* RiparianReportUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E8B28E029E9A3D300CF38C6 /* RiparianReport */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */,
+				2E8B28E329E9A3D300CF38C6 /* ContentView.swift */,
+				2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */,
+				2E8B28E729E9A3D700CF38C6 /* Preview Content */,
+			);
+			path = RiparianReport;
+			sourceTree = "<group>";
+		};
+		2E8B28E729E9A3D700CF38C6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B28E829E9A3D700CF38C6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2E8B28F129E9A3D800CF38C6 /* RiparianReportTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B28F229E9A3D800CF38C6 /* RiparianReportTests.swift */,
+			);
+			path = RiparianReportTests;
+			sourceTree = "<group>";
+		};
+		2E8B28FB29E9A3D800CF38C6 /* RiparianReportUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B28FC29E9A3D800CF38C6 /* RiparianReportUITests.swift */,
+				2E8B28FE29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift */,
+			);
+			path = RiparianReportUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E8B28DD29E9A3D300CF38C6 /* RiparianReport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E8B290229E9A3D800CF38C6 /* Build configuration list for PBXNativeTarget "RiparianReport" */;
+			buildPhases = (
+				2E8B28DA29E9A3D300CF38C6 /* Sources */,
+				2E8B28DB29E9A3D300CF38C6 /* Frameworks */,
+				2E8B28DC29E9A3D300CF38C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RiparianReport;
+			productName = RiparianReport;
+			productReference = 2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E8B28ED29E9A3D800CF38C6 /* RiparianReportTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E8B290529E9A3D800CF38C6 /* Build configuration list for PBXNativeTarget "RiparianReportTests" */;
+			buildPhases = (
+				2E8B28EA29E9A3D800CF38C6 /* Sources */,
+				2E8B28EB29E9A3D800CF38C6 /* Frameworks */,
+				2E8B28EC29E9A3D800CF38C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E8B28F029E9A3D800CF38C6 /* PBXTargetDependency */,
+			);
+			name = RiparianReportTests;
+			productName = RiparianReportTests;
+			productReference = 2E8B28EE29E9A3D800CF38C6 /* RiparianReportTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2E8B28F729E9A3D800CF38C6 /* RiparianReportUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E8B290829E9A3D800CF38C6 /* Build configuration list for PBXNativeTarget "RiparianReportUITests" */;
+			buildPhases = (
+				2E8B28F429E9A3D800CF38C6 /* Sources */,
+				2E8B28F529E9A3D800CF38C6 /* Frameworks */,
+				2E8B28F629E9A3D800CF38C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E8B28FA29E9A3D800CF38C6 /* PBXTargetDependency */,
+			);
+			name = RiparianReportUITests;
+			productName = RiparianReportUITests;
+			productReference = 2E8B28F829E9A3D800CF38C6 /* RiparianReportUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E8B28D629E9A3D300CF38C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					2E8B28DD29E9A3D300CF38C6 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					2E8B28ED29E9A3D800CF38C6 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2E8B28DD29E9A3D300CF38C6;
+					};
+					2E8B28F729E9A3D800CF38C6 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2E8B28DD29E9A3D300CF38C6;
+					};
+				};
+			};
+			buildConfigurationList = 2E8B28D929E9A3D300CF38C6 /* Build configuration list for PBXProject "RiparianReport" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E8B28D529E9A3D300CF38C6;
+			productRefGroup = 2E8B28DF29E9A3D300CF38C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E8B28DD29E9A3D300CF38C6 /* RiparianReport */,
+				2E8B28ED29E9A3D800CF38C6 /* RiparianReportTests */,
+				2E8B28F729E9A3D800CF38C6 /* RiparianReportUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E8B28DC29E9A3D300CF38C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8B28E929E9A3D700CF38C6 /* Preview Assets.xcassets in Resources */,
+				2E8B28E629E9A3D700CF38C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E8B28EC29E9A3D800CF38C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E8B28F629E9A3D800CF38C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E8B28DA29E9A3D300CF38C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8B28E429E9A3D300CF38C6 /* ContentView.swift in Sources */,
+				2E8B28E229E9A3D300CF38C6 /* RiparianReportApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E8B28EA29E9A3D800CF38C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8B28F329E9A3D800CF38C6 /* RiparianReportTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E8B28F429E9A3D800CF38C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8B28FF29E9A3D800CF38C6 /* RiparianReportUITestsLaunchTests.swift in Sources */,
+				2E8B28FD29E9A3D800CF38C6 /* RiparianReportUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E8B28F029E9A3D800CF38C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E8B28DD29E9A3D300CF38C6 /* RiparianReport */;
+			targetProxy = 2E8B28EF29E9A3D800CF38C6 /* PBXContainerItemProxy */;
+		};
+		2E8B28FA29E9A3D800CF38C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E8B28DD29E9A3D300CF38C6 /* RiparianReport */;
+			targetProxy = 2E8B28F929E9A3D800CF38C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2E8B290029E9A3D800CF38C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E8B290129E9A3D800CF38C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E8B290329E9A3D800CF38C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RiparianReport/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dill.group.RiparianReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E8B290429E9A3D800CF38C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RiparianReport/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dill.group.RiparianReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2E8B290629E9A3D800CF38C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dill.group.RiparianReportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RiparianReport.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RiparianReport";
+			};
+			name = Debug;
+		};
+		2E8B290729E9A3D800CF38C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dill.group.RiparianReportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RiparianReport.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RiparianReport";
+			};
+			name = Release;
+		};
+		2E8B290929E9A3D800CF38C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dill.group.RiparianReportUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RiparianReport;
+			};
+			name = Debug;
+		};
+		2E8B290A29E9A3D800CF38C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dill.group.RiparianReportUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RiparianReport;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E8B28D929E9A3D300CF38C6 /* Build configuration list for PBXProject "RiparianReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8B290029E9A3D800CF38C6 /* Debug */,
+				2E8B290129E9A3D800CF38C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E8B290229E9A3D800CF38C6 /* Build configuration list for PBXNativeTarget "RiparianReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8B290329E9A3D800CF38C6 /* Debug */,
+				2E8B290429E9A3D800CF38C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E8B290529E9A3D800CF38C6 /* Build configuration list for PBXNativeTarget "RiparianReportTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8B290629E9A3D800CF38C6 /* Debug */,
+				2E8B290729E9A3D800CF38C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E8B290829E9A3D800CF38C6 /* Build configuration list for PBXNativeTarget "RiparianReportUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8B290929E9A3D800CF38C6 /* Debug */,
+				2E8B290A29E9A3D800CF38C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E8B28D629E9A3D300CF38C6 /* Project object */;
+}
