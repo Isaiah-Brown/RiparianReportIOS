@@ -19,18 +19,24 @@
 	<key>STORAGE_BUCKET</key>
 	<string>allianceforthebayapp.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:873314762207:ios:fce114233afa82cec6d86a</string>
 	<key>DATABASE_URL</key>
 	<string>https://allianceforthebayapp-default-rtdb.firebaseio.com</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Meduim.ttf</string>
+		<string>Poppins-Light.ttf</string>
+	</array>
 </dict>
 </plist>
