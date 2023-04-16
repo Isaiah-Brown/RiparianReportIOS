@@ -24,16 +24,18 @@ import FirebaseAuth
 
 
 
-struct ReportRow: View {
+struct HomeRow: View {
     var graphic: String
     var caption: String
     
     var body: some View {
+        
         VStack{
             Image(graphic).foregroundColor(Color("Sand"))
             Text(caption).foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
         }.padding(10)
     }
+    
 }
 
 
@@ -45,12 +47,35 @@ struct HomeView: View {
             ZStack {
                 Rectangle().foregroundColor((Color("MatteBlack"))).ignoresSafeArea()
                 VStack {
-                    ReportRow(graphic: "mapGraphic", caption: "Map")
-                    ReportRow(graphic: "reportGraphic", caption: "Report")
-                    ReportRow(graphic: "historyGraphic", caption: "History")
+                    Spacer()
+                    Button {
+                        //
+                    } label: {
+                        Image("mapGraphic").foregroundColor(Color("Sand"))
+                        Text("Map").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                    }
+                    Spacer()
+                    
+                    Button {
+                        path.append("ReportView")
+                    } label: {
+                        Image("reportGraphic").foregroundColor(Color("Sand"))
+                        Text("Report").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                    }
+                    Spacer()
+                    Button {
+                        //
+                    } label: {
+                        Image("historyGraphic").foregroundColor(Color("Sand"))
+                        Text("History").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                    }
                 }
-                .padding(20)
                 .foregroundColor(Color("MatteBlack"))
+            }
+            .navigationDestination(for: String.self) { view in
+                if view == "ReportView" {
+                    ReportView()
+                }
             }
         }
     }

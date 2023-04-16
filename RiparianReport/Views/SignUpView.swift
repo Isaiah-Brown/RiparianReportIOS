@@ -12,6 +12,7 @@ import FirebaseAuth
 struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         NavigationStack{
@@ -23,6 +24,9 @@ struct SignUpView: View {
                 Button {
                     register()
                     print(email, password)
+                    if userIsLoggedIn() {
+                        appState.loggedIn = true
+                    }
                 } label: {
                     Text("Sign up").font(.custom("Poppins-Bold", size: 32)).foregroundColor(Color.accentColor)
                 }
