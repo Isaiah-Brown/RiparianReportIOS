@@ -77,6 +77,7 @@
 		2E15B3F829EB40B20008BB5F /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		2E15B40C29EB45170008BB5F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2E15B40E29EB4DE30008BB5F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2E15B41029EBADF50008BB5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiparianReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportApp.swift; sourceTree = "<group>"; };
 		2E8B28E329E9A3D300CF38C6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -175,6 +176,7 @@
 		2E8B28E029E9A3D300CF38C6 /* RiparianReport */ = {
 			isa = PBXGroup;
 			children = (
+				2E15B41029EBADF50008BB5F /* Info.plist */,
 				2E15B40B29EB44E80008BB5F /* Views */,
 				2E15B3E629EB40490008BB5F /* Font */,
 				2E8B290B29E9AAE700CF38C6 /* GoogleService-Info.plist */,
@@ -531,7 +533,7 @@
 				DEVELOPMENT_TEAM = 68K56DUAUC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = RiparianReport/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -562,7 +564,7 @@
 				DEVELOPMENT_TEAM = 68K56DUAUC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = RiparianReport/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

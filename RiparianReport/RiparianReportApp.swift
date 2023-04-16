@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 
 class AppState: ObservableObject {
@@ -18,11 +19,17 @@ class AppState: ObservableObject {
 }
 
 func userIsLoggedIn() -> Bool {
-    var loggedIn = false;
-    Auth.auth().addStateDidChangeListener { auth, user in
-        if user != nil {
-            loggedIn = true;
-        }
+    
+    var loggedIn:Bool
+    //Auth.auth().addStateDidChangeListener { auth, user in
+        //if user != nil {
+            //loggedIn = true;
+        //}
+    //}
+    if Auth.auth().currentUser?.uid != nil {
+        loggedIn = true
+    }else{
+        loggedIn = false
     }
     return loggedIn;
 }

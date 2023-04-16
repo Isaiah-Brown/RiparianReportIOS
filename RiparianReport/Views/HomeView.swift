@@ -20,6 +20,7 @@ init() {
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 
 

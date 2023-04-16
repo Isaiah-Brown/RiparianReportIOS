@@ -23,6 +23,9 @@ struct LoginView: View {
                 TextField("Password", text: $password)
                 Button {
                     login()
+                    if userIsLoggedIn() {
+                        appState.loggedIn = true
+                    }
                 } label: {
                     Text("Login").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
                     
@@ -50,6 +53,7 @@ struct LoginView: View {
             if error != nil {
                 print(error!.localizedDescription)
             }
+            print("Login", "email", email, "password", password)
         }
     }
 }

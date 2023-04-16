@@ -22,6 +22,7 @@ struct SignUpView: View {
                 Spacer()
                 Button {
                     register()
+                    print(email, password)
                 } label: {
                     Text("Sign up").font(.custom("Poppins-Bold", size: 32)).foregroundColor(Color.accentColor)
                 }
@@ -35,6 +36,7 @@ struct SignUpView: View {
             if error != nil {
                 print(error!.localizedDescription)
             }
+            print("Signup", "email", email, "password", password)
             
         }
     }
