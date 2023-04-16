@@ -26,8 +26,9 @@
 		2E15B40929EB40B20008BB5F /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E15B3F729EB40B10008BB5F /* Poppins-Thin.ttf */; };
 		2E15B40A29EB40B20008BB5F /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E15B3F829EB40B20008BB5F /* Poppins-Black.ttf */; };
 		2E15B40D29EB45170008BB5F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15B40C29EB45170008BB5F /* LoginView.swift */; };
+		2E15B40F29EB4DE30008BB5F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15B40E29EB4DE30008BB5F /* SignUpView.swift */; };
 		2E8B28E229E9A3D300CF38C6 /* RiparianReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */; };
-		2E8B28E429E9A3D300CF38C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E329E9A3D300CF38C6 /* ContentView.swift */; };
+		2E8B28E429E9A3D300CF38C6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E329E9A3D300CF38C6 /* HomeView.swift */; };
 		2E8B28E629E9A3D700CF38C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */; };
 		2E8B28E929E9A3D700CF38C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B28E829E9A3D700CF38C6 /* Preview Assets.xcassets */; };
 		2E8B28F329E9A3D800CF38C6 /* RiparianReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28F229E9A3D800CF38C6 /* RiparianReportTests.swift */; };
@@ -75,9 +76,10 @@
 		2E15B3F729EB40B10008BB5F /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		2E15B3F829EB40B20008BB5F /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		2E15B40C29EB45170008BB5F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2E15B40E29EB4DE30008BB5F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiparianReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportApp.swift; sourceTree = "<group>"; };
-		2E8B28E329E9A3D300CF38C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2E8B28E329E9A3D300CF38C6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E8B28E829E9A3D700CF38C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E8B28EE29E9A3D800CF38C6 /* RiparianReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiparianReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,8 +145,9 @@
 		2E15B40B29EB44E80008BB5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E8B28E329E9A3D300CF38C6 /* ContentView.swift */,
+				2E8B28E329E9A3D300CF38C6 /* HomeView.swift */,
 				2E15B40C29EB45170008BB5F /* LoginView.swift */,
+				2E15B40E29EB4DE30008BB5F /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,8 +366,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E15B40F29EB4DE30008BB5F /* SignUpView.swift in Sources */,
 				2E15B40D29EB45170008BB5F /* LoginView.swift in Sources */,
-				2E8B28E429E9A3D300CF38C6 /* ContentView.swift in Sources */,
+				2E8B28E429E9A3D300CF38C6 /* HomeView.swift in Sources */,
 				2E8B28E229E9A3D300CF38C6 /* RiparianReportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
