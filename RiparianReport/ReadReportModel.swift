@@ -11,10 +11,17 @@ import FirebaseDatabase
 
 class ReadReportModel: ObservableObject {
     
+    
+    
     var ref = Database.database().reference()
     
+    @Published var created: Bool = false
+    
+    var reportModels: [ReportModel?] = []
     
     @Published var value: String? = nil
+    
+    
     //@Published var halfReportModel: HalfReportModel ?= nil
     
     
@@ -24,17 +31,30 @@ class ReadReportModel: ObservableObject {
         }
     }
     
-    func readSingleValue() {
+    func createReportModels() {
         ref.child("Questions").observeSingleEvent(of: .value) { snapshot in
             let allChildren = snapshot.children.allObjects as! [DataSnapshot]
+            self.reportModels = [ReportModel?](repeating: nil, count: allChildren.count)
             for snap in allChildren {
-                if let question = snap.childSnapshot(forPath: "question").value as? String {
-                    print(question)
+                var idx:Int = Int(snap.key) ?? 0
+                var question:String = ""
+                var type:String = ""
+                var choices:String = ""
+                
+                if let mType = snap.childSnapshot(forPath: "type").value as? String {
+                    type = mType
                 }
+                if let mQuesion = snap.childSnapshot(forPath: "question").value as? String {
+                   question = mQuesion
+                }
+                if let mChoices = snap.childSnapshot(forPath: "choices").value as? String {
+                   choices = mChoices
+                }
+                print(type, question,  choices)
+                self.reportModels.insert(ReportModel(type: type, question: question, mChoices: choices, idx: idx), at: idx)
             }
-            
-            
         }
+        created = true
     }
     
     /*
@@ -50,5 +70,9 @@ class ReadReportModel: ObservableObject {
     }
      */
     
+    
+}
+
+class ReportModelArray: ObservableObject {
     
 }

@@ -8,38 +8,51 @@
 import Foundation
 
 
-struct ReportModel: Identifiable {
-    init(type:String, question:String) {
+struct ReportModel: Identifiable, Hashable {
+    
+    init() {
+        self.type = ""
+        self.question = ""
+        self.choices = []
+        self.answer = ""
+        self.answered = false
+        self.idx = 0
+    }
+    init(type:String, question:String, idx:Int) {
         self.type = type
         self.question = question
         self.choices = []
         self.answer = ""
         self.answered = false
+        self.idx = idx
     }
     
-    init(type:String, question:String, mChoices:String) {
+    init(type:String, question:String, mChoices:String, idx:Int) {
         self.type = type
         self.question = question
         self.choices = mChoices.components(separatedBy: "_")
         self.answer = ""
         self.answered = false
+        self.idx = idx
     }
     
-    init(question:String, answer:String) {
+    init(question:String, answer:String, idx:Int) {
         self.type = ""
         self.question = question
         self.choices = []
         self.answer = answer
         self.answered = true
+        self.idx = idx
     }
     
     
-    var id: UUID = UUID()
+    let id: UUID = UUID()
     var type:String
     var question:String
     var choices:[String]
     var answer:String
     var answered:Bool
+    var idx:Int
 
     
     func getType() -> String {
@@ -57,6 +70,10 @@ struct ReportModel: Identifiable {
     
     func isAnswered() -> Bool {
         return answered
+    }
+    
+    func getIdx() -> Int {
+        return idx
     }
     
     mutating func setAsnwer(answer:String) {

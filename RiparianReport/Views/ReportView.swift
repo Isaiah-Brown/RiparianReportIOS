@@ -13,34 +13,56 @@ import FirebaseDatabase
 var formReportModels: [ReportModel?] = []
 
 
-
-
-
 struct ReportRow: View {
+    @State var reportModels: [ReportModel?]
+    @State var reportModel: ReportModel
+    @State var answer: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(reportModel.getQuestion())
+        HStack {
+            TextField("Answer", text: $answer)
+            Button {
+                reportModel.setAsnwer(answer: answer)
+            } label: {
+                Text("Enter")
+            }
+
+        }
     }
 }
 
-
+var reportModels: [ReportModel?] = []
 
 struct ReportView: View {
-    @StateObject
-    var readReportModel = ReadReportModel()
-  
+    @StateObject var readReportModel = ReadReportModel()
     
+  
     var body: some View {
-        if readReportModel.value != nil {
-            Text(readReportModel.value!)
+        Spacer()
+        if readReportModel.created {
+            List(reportModels, id: \.?.idx) { reportModel in
+                ReportRow(reportModels: reportModels, reportModel: reportModel ?? ReportModel(), answer: "")
+            }
         } else {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         }
-        
+        Spacer()
         Button {
-            readReportModel.readSingleValue()
+           readReportModel.createReportModels()
+           reportModels = readReportModel.reportModels
         } label: {
             Text("Read from dataBase")
         }
+        Spacer()
+        Button {
+            for reportModel in reportModels {
+                print("answer", reportModel?.getAnswer())
+            }
+        } label: {
+            Text("Print to console")
+        }
+        Spacer()
+
 
     }
 }

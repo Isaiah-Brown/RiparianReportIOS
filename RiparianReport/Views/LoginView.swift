@@ -9,45 +9,78 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
-struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @EnvironmentObject var appState: AppState
-    
+
+struct LogoView: View {
     var body: some View {
-        NavigationStack{
-            VStack{
-                Text("Login").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 48))
-                Spacer()
-                TextField("Email", text: $email)
-                TextField("Password", text: $password)
-                Button {
-                    login()
-                    if userIsLoggedIn() {
-                        appState.loggedIn = true
-                    }
-                } label: {
-                    Text("Login").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
-                    
-                }
-                Spacer()
-                Button {
-                    appState.loggedIn = true
-                } label: {
-                    Text("HACKEDDD")
-                }
-                
-                Spacer()
-                Text("Don't have an account?").foregroundColor(Color("Sand"))
-                    NavigationLink {
-                        SignUpView()
-                    } label: {
-                        Text("Sign up").font(.custom("Poppins-Bold", size: 32)).foregroundColor(Color.accentColor)
-                    }
+        ZStack {
+            Group {
+                Image("leaf").resizable().scaledToFit()
+                Text("Login").foregroundColor(Color("MatteBlack")).font(.custom("Poppins-Bold", size: 48))
             }
         }
     }
-    
+}
+
+
+struct TextFieldView: View {
+    @State var email: String
+    @State var password: String
+    var body: some View {
+        TextField("Email", text: $email)
+            .frame(width: 150, height: 20)
+            .foregroundColor(Color.accentColor)
+            .padding(.bottom, 40)
+            .background {
+                Capsule()
+                    //.strokeBorder(Color("Sand"), lineWidth: 5)
+                    .frame(width: 250, height: 50)
+                    .padding(.bottom, 40)
+                    .foregroundColor(Color("Sand"))
+                
+            }
+        
+        TextField("Password", text: $password)
+            .frame(width: 150, height: 20)
+            .foregroundColor(Color.accentColor)
+            .padding(.bottom, 40)
+            .background {
+                Capsule()
+                    //.strokeBorder(Color("Sand"), lineWidth: 5)
+                    .frame(width: 250, height: 50)
+                    .padding(.bottom, 40)
+                    .foregroundColor(Color("Sand"))
+        }
+                
+    }
+}
+
+struct SignInView: View {
+    @State var email: String
+    @State var password: String
+    @EnvironmentObject var appState: AppState
+    var body: some View {
+        Button {
+            login()
+            if userIsLoggedIn() {
+                appState.loggedIn = true
+            }
+        } label: {
+            ZStack {
+                Capsule()
+                    .fill()
+                    .frame(width: 250, height: 50)
+                Text("Login").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("Sand"))
+            }
+        }
+        
+        Spacer()
+        Text("Don't have an account?").foregroundColor(Color("Sand"))
+            NavigationLink {
+                SignUpView()
+        } label: {
+            Text("Sign up").font(.custom("Poppins-Bold", size: 18)).foregroundColor(Color.accentColor)
+        }
+    }
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
@@ -55,11 +88,31 @@ struct LoginView: View {
             }
             print("Login", "email", email, "password", password)
         }
+        
     }
 }
 
-//struct LoginView_Previews: PreviewProvider {
-    //static var previews: some View {
-        //LoginView(path: NavigationPath)
-    //}
-//}
+
+struct LoginView: View {
+    @State var email = ""
+    @State var password = ""
+    var body: some View {
+        NavigationStack{
+            ZStack {
+                Color("MatteBlack").ignoresSafeArea()
+                VStack{
+                    LogoView()
+                    TextFieldView(email: email, password: password)
+                    SignInView(email: email, password: password)
+                }
+                
+            }
+        }
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}
