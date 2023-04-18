@@ -35,7 +35,10 @@ struct ReportRow: View {
 var reportModels: [ReportModel] = []
 
 struct ReportView: View {
+    
     @StateObject var readReportModel = ReadReportModel()
+    @StateObject var writeReportModel = WriteReportModel()
+    @EnvironmentObject var appState: AppState
     
   
     var body: some View {
@@ -49,10 +52,9 @@ struct ReportView: View {
         }
         Spacer()
         Button {
-           readReportModel.createReportModels()
-           reportModels = readReportModel.reportModels
+           
         } label: {
-            Text("Read from dataBase")
+            Text("push to database")
         }
         Spacer()
         Button {
@@ -67,6 +69,11 @@ struct ReportView: View {
             .onAppear() {
                 readReportModel.createReportModels()
                 reportModels = readReportModel.reportModels
+                let user = Auth.auth().currentUser
+                let mEmail = user?.email
+                print(mEmail)
+                //print("saved email", appState.username)
+                
             }
 
 

@@ -38,8 +38,9 @@ struct SignUpView: View {
                 print(error!.localizedDescription)
             } else {
                 appState.setLoggedIn()
+                //appState.saveUserName(userName: email)
             }
-            print("Signup", "email", email, "password", password)
+            print("Signup", "email", String(email), "password", String(password))
             
         }
     }

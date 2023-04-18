@@ -69,6 +69,12 @@ struct HomeView: View {
                         Image("historyGraphic").foregroundColor(Color("Sand"))
                         Text("History").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
                     }
+                    Button {
+                        logoutUser()
+                    } label: {
+                        Text("Logout").foregroundColor(Color("Sand"))
+                    }
+
                 }
                 .foregroundColor(Color("MatteBlack"))
             }
@@ -77,6 +83,21 @@ struct HomeView: View {
                     ReportView()
                 }
             }
+        }
+    }
+    func logoutUser() {
+        // call from any screen
+        
+        do {
+            let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+              print("Error signing out: %@", signOutError)
+            }
+            print("is active user?")
+            //appState.setLoggedOut()
+            //appState.username = ""
         }
     }
 }
