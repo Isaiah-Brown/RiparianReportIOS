@@ -14,15 +14,16 @@ var formReportModels: [ReportModel] = []
 
 
 struct ReportRow: View {
-    @State var reportModels: [ReportModel]
-    @State var reportModel: ReportModel
+    @StateObject var readReportModel: ReadReportModel
+    @State var idx: Int
     @State var answer: String
+    
     var body: some View {
-        Text(reportModel.getQuestion())
+        Text(readReportModel.reportModels[idx].getQuestion())
         HStack {
             TextField("Answer", text: $answer)
             Button {
-                reportModel.setAsnwer(answer: answer)
+                readReportModel.reportModels[idx].setAsnwer(answer: answer)
             } label: {
                 Text("Enter")
             }
@@ -41,7 +42,7 @@ struct ReportView: View {
         Spacer()
         if readReportModel.created {
             List(readReportModel.reportModels, id: \.idx) { reportModel in
-                ReportRow(reportModels: reportModels, reportModel: reportModel, answer: "")
+                ReportRow(readReportModel: readReportModel, idx: reportModel.getIdx(), answer: "")
             }
         } else {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -55,14 +56,14 @@ struct ReportView: View {
         }
         Spacer()
         Button {
-            for reportModel in reportModels {
+            for reportModel in readReportModel.reportModels {
                 print("answer", reportModel.getAnswer())
             }
+            print("printed to console", readReportModel.reportModels.count)
         } label: {
             Text("Print to console")
         }
         Spacer()
-        
             .onAppear() {
                 readReportModel.createReportModels()
                 reportModels = readReportModel.reportModels

@@ -35,7 +35,7 @@ class ReadReportModel: ObservableObject {
             let allChildren = snapshot.children.allObjects as! [DataSnapshot]
             self.reportModels = [ReportModel](repeating: ReportModel(), count: allChildren.count)
             for snap in allChildren {
-                var idx:Int = Int(snap.key) ?? 0
+                let idx:Int = Int(snap.key) ?? 0
                 var question:String = ""
                 var type:String = ""
                 var choices:String = ""
