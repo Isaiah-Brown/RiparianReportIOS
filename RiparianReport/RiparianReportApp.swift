@@ -16,31 +16,51 @@ class AppState: ObservableObject {
     init(loggedIn: Bool) {
         self.loggedIn = loggedIn
     }
+    
+    func setLoggedIn() {
+        loggedIn = true
+    }
+    
+    func checkIfActiveUser() {
+        
+        //Auth.auth().addStateDidChangeListener { auth, user in
+            //if user != nil {
+                //loggedIn = true;
+            //}
+        //}
+        //if Auth.auth().currentUser?.uid != nil {
+            //loggedIn = true
+        //}else{
+            //loggedIn = false
+        //}
+        
+        
+        Auth.auth().addStateDidChangeListener { [self] auth, user in
+            if user != nil {
+                // User is signed in. Show home screen
+                loggedIn = true
+            }else {
+                loggedIn = false
+                
+            }
+
+        }
+    }
 }
 
-func userIsLoggedIn() -> Bool {
     
-    var loggedIn:Bool
-    //Auth.auth().addStateDidChangeListener { auth, user in
-        //if user != nil {
-            //loggedIn = true;
-        //}
-    //}
-    if Auth.auth().currentUser?.uid != nil {
-        loggedIn = true
-    }else{
-        loggedIn = false
-    }
-    return loggedIn;
-}
+
+
 
 
 @main
 struct RiparianReportApp: App {
     @ObservedObject var appState = AppState(loggedIn: false)
     
+    
     init() {
         FirebaseApp.configure()
+        appState.checkIfActiveUser()
     }
     
     var body: some Scene {

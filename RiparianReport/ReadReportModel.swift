@@ -12,12 +12,11 @@ import FirebaseDatabase
 class ReadReportModel: ObservableObject {
     
     
-    
     var ref = Database.database().reference()
     
     @Published var created: Bool = false
     
-    var reportModels: [ReportModel?] = []
+    @Published var reportModels: [ReportModel] = []
     
     @Published var value: String? = nil
     
@@ -34,7 +33,7 @@ class ReadReportModel: ObservableObject {
     func createReportModels() {
         ref.child("Questions").observeSingleEvent(of: .value) { snapshot in
             let allChildren = snapshot.children.allObjects as! [DataSnapshot]
-            self.reportModels = [ReportModel?](repeating: nil, count: allChildren.count)
+            self.reportModels = [ReportModel](repeating: ReportModel(), count: allChildren.count)
             for snap in allChildren {
                 var idx:Int = Int(snap.key) ?? 0
                 var question:String = ""
@@ -51,10 +50,14 @@ class ReadReportModel: ObservableObject {
                    choices = mChoices
                 }
                 print(type, question,  choices)
+                if idx < self.reportModels.count {
+                    self.reportModels.remove(at: idx)
+                }
                 self.reportModels.insert(ReportModel(type: type, question: question, mChoices: choices, idx: idx), at: idx)
             }
         }
         created = true
+        print(reportModels.count)
     }
     
     /*

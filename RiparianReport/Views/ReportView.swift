@@ -10,11 +10,11 @@ import Firebase
 import FirebaseDatabase
 
 
-var formReportModels: [ReportModel?] = []
+var formReportModels: [ReportModel] = []
 
 
 struct ReportRow: View {
-    @State var reportModels: [ReportModel?]
+    @State var reportModels: [ReportModel]
     @State var reportModel: ReportModel
     @State var answer: String
     var body: some View {
@@ -31,7 +31,7 @@ struct ReportRow: View {
     }
 }
 
-var reportModels: [ReportModel?] = []
+var reportModels: [ReportModel] = []
 
 struct ReportView: View {
     @StateObject var readReportModel = ReadReportModel()
@@ -40,8 +40,8 @@ struct ReportView: View {
     var body: some View {
         Spacer()
         if readReportModel.created {
-            List(reportModels, id: \.?.idx) { reportModel in
-                ReportRow(reportModels: reportModels, reportModel: reportModel ?? ReportModel(), answer: "")
+            List(readReportModel.reportModels, id: \.idx) { reportModel in
+                ReportRow(reportModels: reportModels, reportModel: reportModel, answer: "")
             }
         } else {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -56,12 +56,17 @@ struct ReportView: View {
         Spacer()
         Button {
             for reportModel in reportModels {
-                print("answer", reportModel?.getAnswer())
+                print("answer", reportModel.getAnswer())
             }
         } label: {
             Text("Print to console")
         }
         Spacer()
+        
+            .onAppear() {
+                readReportModel.createReportModels()
+                reportModels = readReportModel.reportModels
+            }
 
 
     }

@@ -24,9 +24,6 @@ struct SignUpView: View {
                 Button {
                     register()
                     print(email, password)
-                    if userIsLoggedIn() {
-                        appState.loggedIn = true
-                    }
                 } label: {
                     Text("Sign up").font(.custom("Poppins-Bold", size: 32)).foregroundColor(Color.accentColor)
                 }
@@ -39,6 +36,8 @@ struct SignUpView: View {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+            } else {
+                appState.setLoggedIn()
             }
             print("Signup", "email", email, "password", password)
             

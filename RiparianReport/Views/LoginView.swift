@@ -15,7 +15,7 @@ struct LogoView: View {
         ZStack {
             Group {
                 Image("leaf").resizable().scaledToFit()
-                Text("Login").foregroundColor(Color("MatteBlack")).font(.custom("Poppins-Bold", size: 48))
+                Text("Welcome").foregroundColor(Color("MatteBlack")).font(.custom("Poppins-Bold", size: 48))
             }
         }
     }
@@ -61,9 +61,6 @@ struct SignInView: View {
     var body: some View {
         Button {
             login()
-            if userIsLoggedIn() {
-                appState.loggedIn = true
-            }
         } label: {
             ZStack {
                 Capsule()
@@ -85,6 +82,8 @@ struct SignInView: View {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+            } else {
+                appState.setLoggedIn()
             }
             print("Login", "email", email, "password", password)
         }
