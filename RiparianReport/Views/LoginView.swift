@@ -21,11 +21,6 @@ struct LogoView: View {
 }
 
 
-
-
-
-
-
 struct LoginView: View {
     @State var email = ""
     @State var password = ""
@@ -37,35 +32,43 @@ struct LoginView: View {
                 VStack{
                     LogoView()
                     Group {
-                        TextField("Email", text: $email)
-                            .frame(width: 150, height: 20)
-                            .foregroundColor(Color.accentColor)
-                            .padding(.bottom, 40)
-                            .background {
-                                Capsule()
-                                //.strokeBorder(Color("Sand"), lineWidth: 5)
-                                    .frame(width: 250, height: 50)
+                        ZStack{
+                            TextField("Email", text: $email)
+                                .frame(width: 150, height: 20)
+                                .foregroundColor(Color.accentColor)
+                                .padding(.bottom, 40)
+                                .background {
+                                    Capsule()
+                                        .strokeBorder(Color("Sand"), lineWidth: 5)
+                                        .frame(width: 250, height: 50)
+                                        .padding(.bottom, 40)
+                                        
+                                    
+                                }
+                            if (email.isEmpty) {
+                                Text("Email").foregroundColor((Color("Sand")))
                                     .padding(.bottom, 40)
-                                    .foregroundColor(Color("Sand"))
-                                
+                                    .offset(x: -54)
                             }
-                        TextField("Password", text: $password)
-                            .frame(width: 150, height: 20)
-                            .foregroundColor(Color.accentColor)
-                            .padding(.bottom, 40)
-                            .background {
-                                Capsule()
-                                //.strokeBorder(Color("Sand"), lineWidth: 5)
-                                    .frame(width: 250, height: 50)
-                                    .padding(.bottom, 40)
-                                    .foregroundColor(Color("Sand"))
-                            }
-                        Button {
-                            password = "yur"
-                        } label: {
-                            Text("yurr")
                         }
-
+                        ZStack {
+                            TextField("Password", text: $password)
+                                .frame(width: 150, height: 20)
+                                .foregroundColor(Color.accentColor)
+                                .padding(.bottom, 40)
+                                .background {
+                                    Capsule()
+                                        .strokeBorder(Color("Sand"), lineWidth: 5)
+                                        .frame(width: 250, height: 50)
+                                        .padding(.bottom, 40)
+                                     
+                                }
+                            if (password.isEmpty) {
+                                Text("Password").foregroundColor((Color("Sand")))
+                                    .padding(.bottom, 40)
+                                    .offset(x: -39)
+                            }
+                        }
                     }
                     Group {
                         Button {
@@ -99,6 +102,7 @@ struct LoginView: View {
                 print(error!.localizedDescription)
             } else {
                 appState.setLoggedIn()
+                appState.saveUserName(userName: email)
             }
             print("Login", "email", email, "password", password)
         }

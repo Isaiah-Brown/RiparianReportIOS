@@ -92,12 +92,13 @@ struct HomeView: View {
             let firebaseAuth = Auth.auth()
             do {
               try firebaseAuth.signOut()
+                appState.setLoggedOut()
             } catch let signOutError as NSError {
               print("Error signing out: %@", signOutError)
             }
             print("is active user?")
-            //appState.setLoggedOut()
-            //appState.username = ""
+            appState.setLoggedOut()
+            appState.removeUserName()
         }
     }
 }

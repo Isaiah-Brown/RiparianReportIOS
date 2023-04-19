@@ -52,7 +52,8 @@ struct ReportView: View {
         }
         Spacer()
         Button {
-           
+            
+            writeReportModel.pushNewValue()
         } label: {
             Text("push to database")
         }
@@ -67,11 +68,13 @@ struct ReportView: View {
         }
         Spacer()
             .onAppear() {
+                writeReportModel.addUserName(username: appState.username)
                 readReportModel.createReportModels()
                 reportModels = readReportModel.reportModels
                 let user = Auth.auth().currentUser
                 let mEmail = user?.email
                 print(mEmail)
+                print("username****", appState.username)
                 //print("saved email", appState.username)
                 
             }

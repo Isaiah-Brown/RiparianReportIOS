@@ -13,7 +13,7 @@ import FirebaseAuth
 class AppState: ObservableObject {
     @Published var loggedIn: Bool
     
-    //@AppStorage("Username") var username: String = ""
+    @AppStorage("Username") var username: String = ""
     
     init(loggedIn: Bool) {
         self.loggedIn = loggedIn
@@ -27,9 +27,13 @@ class AppState: ObservableObject {
         loggedIn = false
     }
     
-    //func saveUserName(userName: String) {
-        //self.username = userName
-    //}
+    func saveUserName(userName: String) {
+        self.username = userName
+    }
+    
+    func removeUserName() {
+        self.username = ""
+    }
     
     func checkIfActiveUser() {
         
