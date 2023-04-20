@@ -79,7 +79,7 @@ struct LoginView: View {
                                 Capsule()
                                     .fill()
                                     .frame(width: 250, height: 50)
-                                Text("Login").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("Sand"))
+                                Text("Login").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("MatteBlack"))
                             }
                         }
                         

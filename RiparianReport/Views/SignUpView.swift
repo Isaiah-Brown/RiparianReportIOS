@@ -16,20 +16,69 @@ struct SignUpView: View {
     
     var body: some View {
         NavigationStack{
-            VStack{
-                Text("Sign up").foregroundColor(Color.accentColor)
-                TextField("Email", text: $email)
-                TextField("Password", text: $password)
-                Spacer()
-                Button {
-                    register()
-                    print(email, password)
-                } label: {
-                    Text("Sign up").font(.custom("Poppins-Bold", size: 32)).foregroundColor(Color.accentColor)
+            ZStack {
+                Color("MatteBlack").ignoresSafeArea()
+                VStack{
+                    LogoView()
+                    Group {
+                        ZStack{
+                            TextField("Email", text: $email)
+                                .frame(width: 150, height: 20)
+                                .foregroundColor(Color.accentColor)
+                                .padding(.bottom, 40)
+                                .background {
+                                    Capsule()
+                                        .strokeBorder(Color("Sand"), lineWidth: 5)
+                                        .frame(width: 250, height: 50)
+                                        .padding(.bottom, 40)
+                                        
+                                    
+                                }
+                            if (email.isEmpty) {
+                                Text("Email").foregroundColor((Color("Sand")))
+                                    .padding(.bottom, 40)
+                                    .offset(x: -54)
+                            }
+                        }
+                        ZStack {
+                            TextField("Password", text: $password)
+                                .frame(width: 150, height: 20)
+                                .foregroundColor(Color.accentColor)
+                                .padding(.bottom, 40)
+                                .background {
+                                    Capsule()
+                                        .strokeBorder(Color("Sand"), lineWidth: 5)
+                                        .frame(width: 250, height: 50)
+                                        .padding(.bottom, 40)
+                                     
+                                }
+                            if (password.isEmpty) {
+                                Text("Password").foregroundColor((Color("Sand")))
+                                    .padding(.bottom, 40)
+                                    .offset(x: -39)
+                            }
+                        }
+                    }
+                    Group {
+                        Button {
+                            register()
+                            print(email, password)
+                        } label: {
+                            ZStack {
+                                Capsule()
+                                    .fill()
+                                    .frame(width: 250, height: 50)
+                                Text("Login").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("MatteBlack"))
+                            }
+                        }
+                        
+                        Spacer()
+                    }
                 }
-                
             }
+                
         }
+
     }
     
     func register() {

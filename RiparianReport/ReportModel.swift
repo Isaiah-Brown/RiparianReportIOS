@@ -34,6 +34,9 @@ struct ReportModel: Identifiable, Hashable {
         self.answer = ""
         self.answered = false
         self.idx = idx
+        if (self.type == "MULTIPLE_CHOICE_OTHER") {
+            choices.append("Other:")
+        }
     }
     
     init(question:String, answer:String, idx:Int) {
