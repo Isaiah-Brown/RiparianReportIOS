@@ -10,6 +10,8 @@
 		2E14895A29EF39C7005BBA30 /* WriteReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E14895929EF39C7005BBA30 /* WriteReportModel.swift */; };
 		2E14895D29EF3A96005BBA30 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E14895C29EF3A96005BBA30 /* FirebaseDatabaseSwift */; };
 		2E14895F29EF3AA0005BBA30 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E14895E29EF3AA0005BBA30 /* FirebaseAnalytics */; };
+		2E14896129F0CDBA005BBA30 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E14896029F0CDBA005BBA30 /* HistoryView.swift */; };
+		2E14896529F0DEC3005BBA30 /* HistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E14896429F0DEC3005BBA30 /* HistoryHelper.swift */; };
 		2E15B3F929EB40B20008BB5F /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E15B3E729EB40AD0008BB5F /* Poppins-Italic.ttf */; };
 		2E15B3FA29EB40B20008BB5F /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E15B3E829EB40AF0008BB5F /* Poppins-BlackItalic.ttf */; };
 		2E15B3FB29EB40B20008BB5F /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E15B3E929EB40AF0008BB5F /* Poppins-MediumItalic.ttf */; };
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		2E14895929EF39C7005BBA30 /* WriteReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReportModel.swift; sourceTree = "<group>"; };
+		2E14896029F0CDBA005BBA30 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		2E14896429F0DEC3005BBA30 /* HistoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHelper.swift; sourceTree = "<group>"; };
 		2E15B3E729EB40AD0008BB5F /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		2E15B3E829EB40AF0008BB5F /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
 		2E15B3E929EB40AF0008BB5F /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -165,10 +169,11 @@
 		2E15B40B29EB44E80008BB5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E8B28E329E9A3D300CF38C6 /* HomeView.swift */,
 				2E15B40C29EB45170008BB5F /* LoginView.swift */,
 				2E15B40E29EB4DE30008BB5F /* SignUpView.swift */,
+				2E8B28E329E9A3D300CF38C6 /* HomeView.swift */,
 				2E15B41129EC3AF50008BB5F /* ReportView.swift */,
+				2E14896029F0CDBA005BBA30 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				2E15B41329EC3B1D0008BB5F /* ReportModel.swift */,
 				2E15B41529EC4B2B0008BB5F /* ReadReportModel.swift */,
 				2E14895929EF39C7005BBA30 /* WriteReportModel.swift */,
+				2E14896429F0DEC3005BBA30 /* HistoryHelper.swift */,
 			);
 			path = RiparianReport;
 			sourceTree = "<group>";
@@ -401,6 +407,8 @@
 				2E8B28E429E9A3D300CF38C6 /* HomeView.swift in Sources */,
 				2E15B41429EC3B1D0008BB5F /* ReportModel.swift in Sources */,
 				2E15B41229EC3AF50008BB5F /* ReportView.swift in Sources */,
+				2E14896129F0CDBA005BBA30 /* HistoryView.swift in Sources */,
+				2E14896529F0DEC3005BBA30 /* HistoryHelper.swift in Sources */,
 				2E8B28E229E9A3D300CF38C6 /* RiparianReportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,7 +27,6 @@ struct ReportRow: View {
             } label: {
                 Text("Enter")
             }
-
         }
     }
 }
@@ -39,12 +38,11 @@ struct ReportView: View {
     @StateObject var readReportModel = ReadReportModel()
     @StateObject var writeReportModel = WriteReportModel()
     @EnvironmentObject var appState: AppState
-    
   
     var body: some View {
         Spacer()
         if readReportModel.created {
-            List(readReportModel.reportModels, id: \.idx) { reportModel in
+            List(readReportModel.reportModels) { reportModel in
                 ReportRow(readReportModel: readReportModel, idx: reportModel.getIdx(), answer: "")
             }
         } else {
@@ -52,10 +50,9 @@ struct ReportView: View {
         }
         Spacer()
         Button {
-            
-            writeReportModel.pushNewValue()
+            writeReportModel.pushReportModels(reportModels: readReportModel.reportModels)
         } label: {
-            Text("push to database")
+            Text("Submit Answers")
         }
         Spacer()
         Button {
@@ -70,7 +67,7 @@ struct ReportView: View {
             .onAppear() {
                 writeReportModel.addUserName(username: appState.username)
                 readReportModel.createReportModels()
-                reportModels = readReportModel.reportModels
+                //reportModels = readReportModel.reportModels
                 let user = Auth.auth().currentUser
                 let mEmail = user?.email
                 print(mEmail)

@@ -64,7 +64,7 @@ struct HomeView: View {
                     }
                     Spacer()
                     Button {
-                        //
+                        path.append("HistoryView")
                     } label: {
                         Image("historyGraphic").foregroundColor(Color("Sand"))
                         Text("History").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
@@ -81,6 +81,8 @@ struct HomeView: View {
             .navigationDestination(for: String.self) { view in
                 if view == "ReportView" {
                     ReportView()
+                } else if view == "HistoryView" {
+                    HistoryView()
                 }
             }
         }

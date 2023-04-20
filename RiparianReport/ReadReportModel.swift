@@ -18,7 +18,16 @@ class ReadReportModel: ObservableObject {
     
     @Published var reportModels: [ReportModel] = []
     
+    @Published var pastReportModels: [ReportModel] = []
+    
     @Published var value: String? = nil
+    
+    private var username = ""
+    
+    func addUserName(username: String) {
+        let tmpUsername = username.replacingOccurrences(of: ".", with: ",").lowercased()
+        self.username = tmpUsername
+    }
     
     
     //@Published var halfReportModel: HalfReportModel ?= nil
@@ -35,7 +44,7 @@ class ReadReportModel: ObservableObject {
             let allChildren = snapshot.children.allObjects as! [DataSnapshot]
             self.reportModels = [ReportModel](repeating: ReportModel(), count: allChildren.count)
             for snap in allChildren {
-                var idx:Int = Int(snap.key) ?? 0
+                var idx:Int = (Int(snap.key) ?? 1) - 1
                 var question:String = ""
                 var type:String = ""
                 var choices:String = ""
@@ -50,14 +59,22 @@ class ReadReportModel: ObservableObject {
                    choices = mChoices
                 }
                 print(type, question,  choices)
-                if idx < self.reportModels.count {
-                    self.reportModels.remove(at: idx)
-                }
-                self.reportModels.insert(ReportModel(type: type, question: question, mChoices: choices, idx: idx), at: idx)
+                self.reportModels[idx] = ReportModel(type: type, question: question, mChoices: choices, idx: idx)
             }
+            //self.reportModels.remove(at: 0)
         }
         created = true
-        print(reportModels.count)
+    }
+    
+    func readHistory() {
+        ref.child("users").child(username).observeSingleEvent(of: .value) { snapshot in
+            let allChildren = snapshot.children.allObjects as! [DataSnapshot]
+            var count = 1
+            //var array = [][]
+            for snap in allChildren {
+                
+            }
+        }
     }
     
     /*
@@ -76,6 +93,3 @@ class ReadReportModel: ObservableObject {
     
 }
 
-class ReportModelArray: ObservableObject {
-    
-}

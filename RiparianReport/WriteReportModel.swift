@@ -17,9 +17,32 @@ class WriteReportModel: ObservableObject {
     private let ref = Database.database().reference()
     
     func addUserName(username: String) {
-        
         let tmpUsername = username.replacingOccurrences(of: ".", with: ",").lowercased()
         self.username = tmpUsername
+    }
+    
+    func pushReportModels(reportModels: [ReportModel]) {
+        let refToAdd = ref.child("users").child(username).childByAutoId()
+        
+        for i in 0...reportModels.count - 1 {
+            var question = reportModels[i].getQuestion().replacingOccurrences(of: ".", with: ",")
+            var answer = reportModels[i].getAnswer()
+            if answer.count == 0 {
+                answer = "N/A"
+            }
+            /*
+            if (question.contains(".") || question.contains("#") || question.contains("$") || question.contains("[") || question.contains("]") || answer.contains(".") || answer.contains("#") || answer.contains("$") || answer.contains("[") || answer.contains("]")) || question == "" || answer == "" {
+                print("*****", question, answer, i)
+            }
+             */
+            //print(i, question)
+            refToAdd.child(question).setValue(answer)
+        }
+    }
+    
+    
+    func pushTooGoogleSHeets() {
+        
     }
     
     
@@ -27,7 +50,6 @@ class WriteReportModel: ObservableObject {
         //ref.setValue(value)
         
         let refToAdd = ref.child("users").child(username).childByAutoId()
-        
         refToAdd.child("Question").setValue("Answer")
         //refToAdd.setValue("answer", forKey: "Question")
         //ref.child("users").child(username).childByAutoId().setValue("answer", forKey: "Question")
@@ -44,7 +66,6 @@ class WriteReportModel: ObservableObject {
             }
         }
          */
-     
     }
         
 }
