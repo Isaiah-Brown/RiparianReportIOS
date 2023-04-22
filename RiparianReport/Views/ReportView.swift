@@ -26,41 +26,29 @@ struct ReportRow: View {
     var body: some View {
         ZStack {
             if (readReportModel.reportModels[idx].getAnswer() != "") {
-                Rectangle().foregroundColor(Color.accentColor).ignoresSafeArea()
+                Rectangle().foregroundColor(Color.accentColor).ignoresSafeArea().opacity(0.1)
             } else {
                 //.listRowBackground(Color("MatteBlack"))
             }
             if (readReportModel.reportModels[idx].getType() == "TEXT") {
-                VStack{
-                    HStack{
-                        Text(readReportModel.reportModels[idx].getQuestion()).foregroundColor(Color("Sand"))
-                            .foregroundColor(Color.gray)
-                        Spacer()
-                    }
-                    HStack{
-                        TextField("Answer", text: $answer).foregroundColor(Color("Sand"))
-                        Button {
+                VStack(alignment: .leading){
+                    Text(readReportModel.reportModels[idx].getQuestion())
+                    TextField("Answer", text: $answer)
+                        .onChange(of: answer) { newValue in
                             readReportModel.reportModels[idx].setAsnwer(answer: answer)
-                        } label: {
-                            Text("Enter").foregroundColor(Color.accentColor)
                         }
-                    }
                 }
             } else if readReportModel.reportModels[idx].getType() == "DATE" {
                 HStack{
                     DatePicker(readReportModel.reportModels[idx].getQuestion(), selection: $date, displayedComponents: .date)
+                        .onTapGesture {
+                            let formatter = DateFormatter()
+                            formatter.dateStyle = .short
+                            answer = formatter.string(from: date)
+                            print(answer)
+                            readReportModel.reportModels[idx].setAsnwer(answer: answer)
+                        }
                         //datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-                    
-                    Spacer()
-                    Button {
-                        let formatter = DateFormatter()
-                        formatter.dateStyle = .short
-                        answer = formatter.string(from: date)
-                        print(answer)
-                        readReportModel.reportModels[idx].setAsnwer(answer: answer)
-                    } label: {
-                        Text("Enter").foregroundColor(Color.accentColor)
-                    }
                 }
         
             } else if readReportModel.reportModels[idx].getType() == "MULTIPLE_CHOICE" {
@@ -69,17 +57,9 @@ struct ReportRow: View {
                         Picker(readReportModel.reportModels[idx].getQuestion(), selection: $pickerAnswer) {
                             ForEach(readReportModel.reportModels[idx].getChoices(), id: \.self) {
                                 Text($0).foregroundColor(Color.accentColor)
+                            }.onChange(of: pickerAnswer) { newValue in
+                                readReportModel.reportModels[idx].setAsnwer(answer: pickerAnswer)
                             }
-                        }
-                    }
-                    HStack{
-                        TextField("Answer", text: $answer).foregroundColor(Color("Sand"))
-                        Spacer()
-                        Button {
-                            answer = pickerAnswer
-                            readReportModel.reportModels[idx].setAsnwer(answer: pickerAnswer)
-                        } label: {
-                            Text("Enter").foregroundColor(Color.accentColor)
                         }
                     }
                 }
@@ -90,27 +70,22 @@ struct ReportRow: View {
                         Picker(readReportModel.reportModels[idx].getQuestion(), selection: $pickerAnswer) {
                             ForEach(readReportModel.reportModels[idx].getChoices(), id: \.self) {
                                 Text($0).foregroundColor(Color.accentColor)
+                            }.onChange(of: pickerAnswer) { newValue in
+                                if pickerAnswer != "Other:" {
+                                    readReportModel.reportModels[idx].setAsnwer(answer: pickerAnswer)
+                                }
                             }
                             
                         }
-                            //.compositingGroup()
-                            //.clipped()
-
                     }
                     HStack {
-                        TextField("Answer", text: $answer).foregroundColor(Color("Sand"))
-                        Spacer()
-                        Button {
-                            if (pickerAnswer == "Other:") {
-                                readReportModel.reportModels[idx].setAsnwer(answer: answer)
-                            } else {
-                                answer = pickerAnswer
-                                readReportModel.reportModels[idx].setAsnwer(answer: answer)
-                                
-                            }
-                        } label: {
-                            Text("Enter").foregroundColor(Color.accentColor)
+                        if (pickerAnswer == "Other:") {
+                            TextField("Answer", text: $answer)
+                                .onSubmit {
+                                    readReportModel.reportModels[idx].setAsnwer(answer: answer)
+                                }
                         }
+                        
                     }
                 }
             }

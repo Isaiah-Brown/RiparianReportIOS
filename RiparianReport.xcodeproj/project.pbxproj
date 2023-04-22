@@ -35,6 +35,7 @@
 		2E15B41229EC3AF50008BB5F /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15B41129EC3AF50008BB5F /* ReportView.swift */; };
 		2E15B41429EC3B1D0008BB5F /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15B41329EC3B1D0008BB5F /* ReportModel.swift */; };
 		2E15B41629EC4B2B0008BB5F /* ReadReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15B41529EC4B2B0008BB5F /* ReadReportModel.swift */; };
+		2E4ECB8929F4872700C85776 /* HistoryInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4ECB8829F4872700C85776 /* HistoryInnerView.swift */; };
 		2E8B28E229E9A3D300CF38C6 /* RiparianReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */; };
 		2E8B28E429E9A3D300CF38C6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B28E329E9A3D300CF38C6 /* HomeView.swift */; };
 		2E8B28E629E9A3D700CF38C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B28E529E9A3D700CF38C6 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		2E15B41129EC3AF50008BB5F /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		2E15B41329EC3B1D0008BB5F /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		2E15B41529EC4B2B0008BB5F /* ReadReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadReportModel.swift; sourceTree = "<group>"; };
+		2E4ECB8829F4872700C85776 /* HistoryInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInnerView.swift; sourceTree = "<group>"; };
 		2E8B28DE29E9A3D300CF38C6 /* RiparianReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiparianReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8B28E129E9A3D300CF38C6 /* RiparianReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiparianReportApp.swift; sourceTree = "<group>"; };
 		2E8B28E329E9A3D300CF38C6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				2E8B28E329E9A3D300CF38C6 /* HomeView.swift */,
 				2E15B41129EC3AF50008BB5F /* ReportView.swift */,
 				2E14896029F0CDBA005BBA30 /* HistoryView.swift */,
+				2E4ECB8829F4872700C85776 /* HistoryInnerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E4ECB8929F4872700C85776 /* HistoryInnerView.swift in Sources */,
 				2E15B40F29EB4DE30008BB5F /* SignUpView.swift in Sources */,
 				2E14895A29EF39C7005BBA30 /* WriteReportModel.swift in Sources */,
 				2E15B41629EC4B2B0008BB5F /* ReadReportModel.swift in Sources */,

@@ -12,9 +12,13 @@ struct DateRow: View {
     @StateObject var historyHelper: HistoryHelper
     @State var idx: Int
     var body: some View {
-        HStack {
-            Text(historyHelper.forms[idx].getDate())
-            Text(String(historyHelper.forms[idx].getDateNumber()))
+        NavigationLink {
+            HistoryInnerView(questionSet: historyHelper.forms[idx].questionSet)
+        } label: {
+            HStack {
+                Text(historyHelper.forms[idx].getDate())
+                Text(String(historyHelper.forms[idx].getDateNumber()))
+            }
         }
     }
 }
@@ -22,6 +26,7 @@ struct DateRow: View {
 struct HistoryView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var historyHelper = HistoryHelper()
+    
     var body: some View {
         if historyHelper.created {
             List(historyHelper.forms) { form in
@@ -33,12 +38,14 @@ struct HistoryView: View {
         Button {
             historyHelper.sortForms()
         }label: {
-            Text("sort forms")
+            Text("View Previous forms")
         }
         Spacer()
             .onAppear() {
-                historyHelper.addUserName(username: appState.username)
-                historyHelper.findDateQuestion()
+                if !historyHelper.created {
+                    historyHelper.addUserName(username: appState.username)
+                    historyHelper.findDateQuestion()
+                }
             }
             
     }

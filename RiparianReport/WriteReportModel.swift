@@ -41,7 +41,7 @@ class WriteReportModel: ObservableObject {
     }
     
     
-    func pushTooGoogleSHeets() {
+    func pushTooGoogleSHeets(reportModels: [ReportModel]) {
         
     }
     
