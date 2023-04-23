@@ -53,6 +53,9 @@ class AppState: ObservableObject {
             if user != nil {
                 // User is signed in. Show home screen
                 loggedIn = true
+                if (username == "" || username == " ") {
+                    loggedIn = false
+                }
                 print("active user")
             }else {
                 loggedIn = false

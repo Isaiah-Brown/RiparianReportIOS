@@ -20,7 +20,9 @@ class HistoryHelper: ObservableObject {
     
     @Published var forms = [Form]()
     
-    @Published var created: Bool = false
+    @Published var isSorted: Bool = false
+    
+    @Published var initalized:Bool = false
     
     
     func addUserName(username: String) {
@@ -28,6 +30,7 @@ class HistoryHelper: ObservableObject {
         self.username = tmpUsername
     }
     
+    /*
     func findDateQuestion() {
         ref.child("Questions").observeSingleEvent(of: .value) { snapshot in
             let allChildren = snapshot.children.allObjects as! [DataSnapshot]
@@ -46,7 +49,7 @@ class HistoryHelper: ObservableObject {
         }
         initForms()
     }
-    
+    */
     func initForms() {
         //if !self.forms.isEmpty {
             //self.forms = [Form]()
@@ -54,6 +57,7 @@ class HistoryHelper: ObservableObject {
         print("*******   FORMS STARTED ***********")
         print(self.dateKey)
         ref.child("users").child(username).observeSingleEvent(of: .value) { snapshot in
+            var tmpForms = [Form]()
             let allChildren = snapshot.children.allObjects as! [DataSnapshot]
             var idx = 0
             for snap in allChildren {
@@ -63,7 +67,7 @@ class HistoryHelper: ObservableObject {
                     let value = question.value as? String
                     let key = String(question.key)
                     print(key)
-                    if (key == self.dateKey) {
+                    if (key == "Date of Check-up") {
                         form.setDate(date: value ?? "No date")
                         form.setDateNumber(date: value ?? "")
                         print("date found", value)
@@ -71,11 +75,22 @@ class HistoryHelper: ObservableObject {
                     form.questionSet.append(Pair(question: key, answer: value as! String))
                     form.setIdx(idx: idx)
                 }
-                self.forms.append(form)
+                tmpForms.append(form)
                 idx += 1
             }
+            for i in 0..<tmpForms.count - 1 {
+                for j in 0..<tmpForms.count - i - 1{
+                    if (tmpForms[j].getDateNumber() < tmpForms[j+1].getDateNumber()) {
+                        tmpForms[j].setIdx(idx: j+1)
+                        tmpForms[j+1].setIdx(idx: j)
+                        tmpForms.swapAt(j, j+1)
+                    }
+                }
+            }
+            self.forms = tmpForms
+            
         }
-        sortForms()
+        //sortForms()
         
     }
     func sortForms() {
@@ -90,7 +105,7 @@ class HistoryHelper: ObservableObject {
         var tmpForms = self.forms
         for i in 0..<tmpForms.count - 1 {
             for j in 0..<tmpForms.count - i - 1{
-                if (tmpForms[j].getDateNumber() > tmpForms[j+1].getDateNumber()) {
+                if (tmpForms[j].getDateNumber() < tmpForms[j+1].getDateNumber()) {
                     tmpForms[j].setIdx(idx: j+1)
                     tmpForms[j+1].setIdx(idx: j)
                     tmpForms.swapAt(j, j+1)
@@ -104,7 +119,8 @@ class HistoryHelper: ObservableObject {
         for i in stride(from: 0, to: self.forms.count, by: 1) {
             print(self.forms[i].getDate(), self.forms[i].getIdx(), "date after")
         }
-        created = true
+        isSorted = true
+        initalized = true
     }
 }
 
@@ -115,7 +131,7 @@ class Form: Identifiable {
     
     let id: UUID = UUID()
     var questionSet = [Pair]()
-    var date:String
+    @Published var date:String
     var dateNumber:Int
     var idx:Int
     

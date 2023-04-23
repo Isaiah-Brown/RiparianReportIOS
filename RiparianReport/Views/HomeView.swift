@@ -27,14 +27,18 @@ import FirebaseAuth
 struct HomeRow: View {
     var graphic: String
     var caption: String
-    
+    @EnvironmentObject var appState: AppState
     var body: some View {
         
         VStack{
             Image(graphic).foregroundColor(Color("Sand"))
             Text(caption).foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
         }.padding(10)
+            .onAppear() {
+                print(appState.username, "username")
+            }
     }
+        
     
 }
 
@@ -49,10 +53,11 @@ struct HomeView: View {
                 VStack {
                     Spacer()
                     Button {
-                        //
+                        var sheetsAPI = SheetsAPI()
+                        sheetsAPI.writeToSheets()
                     } label: {
                         Image("mapGraphic").foregroundColor(Color("Sand"))
-                        Text("Map").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                        Text("Push to sheets").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
                     }
                     Spacer()
                     

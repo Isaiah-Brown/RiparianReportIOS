@@ -11,13 +11,13 @@ import SwiftUI
 struct DateRow: View {
     @StateObject var historyHelper: HistoryHelper
     @State var idx: Int
+    var date: String
     var body: some View {
         NavigationLink {
             HistoryInnerView(questionSet: historyHelper.forms[idx].questionSet)
         } label: {
             HStack {
-                Text(historyHelper.forms[idx].getDate())
-                Text(String(historyHelper.forms[idx].getDateNumber()))
+                Text(date)
             }
         }
     }
@@ -28,13 +28,17 @@ struct HistoryView: View {
     @StateObject var historyHelper = HistoryHelper()
     
     var body: some View {
-        if historyHelper.created {
+        //if historyHelper.initalized {
             List(historyHelper.forms) { form in
-                DateRow(historyHelper: historyHelper, idx: form.getIdx())
+                DateRow(historyHelper: historyHelper, idx: form.getIdx(), date: form.date)
+            }.onChange(of: historyHelper.initalized) { newValue in
+                historyHelper.sortForms()
             }
+        
+        /*
         } else {
             Text("Loading")
-        }
+        }*/
         Button {
             historyHelper.sortForms()
         }label: {
@@ -42,10 +46,20 @@ struct HistoryView: View {
         }
         Spacer()
             .onAppear() {
-                if !historyHelper.created {
-                    historyHelper.addUserName(username: appState.username)
-                    historyHelper.findDateQuestion()
+                if !historyHelper.initalized {
+                    DispatchQueue.main.async {
+                        historyHelper.addUserName(username: appState.username)
+                        historyHelper.initForms()
+                        historyHelper.sortForms()
+                    }
+                    //historyHelper.addUserName(username: appState.username)
+                    //historyHelper.initForms()
+                    //historyHelper.sortForms()
+                    
                 }
+                //if !historyHelper.isSorted {
+                   // historyHelper.sortForms()
+                //}
             }
             
     }

@@ -30,7 +30,7 @@ struct ReportRow: View {
             } else {
                 //.listRowBackground(Color("MatteBlack"))
             }
-            if (readReportModel.reportModels[idx].getType() == "TEXT") {
+            if (readReportModel.reportModels[idx].getType() == "TEXT" || readReportModel.reportModels[idx].getType() == "LOCATION")  {
                 VStack(alignment: .leading){
                     Text(readReportModel.reportModels[idx].getQuestion())
                     TextField("Answer", text: $answer)
@@ -48,6 +48,14 @@ struct ReportRow: View {
                             print(answer)
                             readReportModel.reportModels[idx].setAsnwer(answer: answer)
                         }
+                        .onChange(of: date) { newValue in
+                            let formatter = DateFormatter()
+                            formatter.dateStyle = .short
+                            answer = formatter.string(from: date)
+                            print(answer)
+                            readReportModel.reportModels[idx].setAsnwer(answer: answer)
+                        }
+                
                         //datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
                 }
         
