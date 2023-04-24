@@ -170,8 +170,8 @@ var reportModels: [ReportModel] = []
 
 struct ReportView: View {
     
-    @StateObject var readReportModel = ReadReportModel()
-    @StateObject var writeReportModel = WriteReportModel()
+    @ObservedObject var readReportModel: ReadReportModel
+    @ObservedObject var writeReportModel: WriteReportModel
     @EnvironmentObject var appState: AppState
     @State private var showingAlert = false
   
@@ -213,9 +213,7 @@ struct ReportView: View {
                 }
                 Spacer()
                     .onAppear() {
-                        writeReportModel.addUserName(username: appState.username)
-                        readReportModel.createReportModels()
-                        //reportModels = readReportModel.reportModels
+                                                //reportModels = readReportModel.reportModels
                         let user = Auth.auth().currentUser
                         let mEmail = user?.email
                         print(mEmail)
@@ -228,8 +226,10 @@ struct ReportView: View {
     }
 }
 
-struct ReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReportView()
-    }
-}
+/*
+ struct ReportView_Previews: PreviewProvider {
+ static var previews: some View {
+ ReportView()
+ }
+ }
+ */

@@ -26,6 +26,7 @@ import FirebaseAuth
 struct HomeLogoView: View {
     @EnvironmentObject var appState: AppState
     @State private var showingAlert = false
+    
     var body: some View {
         HStack {
             Spacer()
@@ -96,6 +97,9 @@ struct HomeRow: View {
 struct HomeView: View {
     @State private var path = NavigationPath()
     @EnvironmentObject var appState: AppState
+    @StateObject var historyHelper = HistoryHelper()
+    @StateObject var readReportModel = ReadReportModel()
+    @StateObject var writeReportModel = WriteReportModel()
     var body: some View {
         NavigationStack(path: $path){
             ZStack {
@@ -124,11 +128,19 @@ struct HomeView: View {
                 }
                 .foregroundColor(Color("MatteBlack"))
             }
+            .onAppear() {
+                if !historyHelper.initalized {
+                    historyHelper.addUserName(username: appState.username)
+                    historyHelper.initForms()
+                }
+                writeReportModel.addUserName(username: appState.username)
+                readReportModel.createReportModels()
+            }
             .navigationDestination(for: String.self) { view in
                 if view == "ReportView" {
-                    ReportView()
+                    ReportView(readReportModel: readReportModel, writeReportModel: writeReportModel)
                 } else if view == "HistoryView" {
-                    HistoryView()
+                    HistoryView(historyHelper: historyHelper)
                 }
             }
         }

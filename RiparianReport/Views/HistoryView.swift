@@ -30,7 +30,7 @@ struct DateRow: View {
 
 struct HistoryView: View {
     @EnvironmentObject var appState: AppState
-    @StateObject var historyHelper = HistoryHelper()
+    @ObservedObject var historyHelper: HistoryHelper
     
     var body: some View {
         ZStack {
@@ -46,18 +46,12 @@ struct HistoryView: View {
             //.scrollContentBackground(.hidden)
             }
         .background(Color("MatteBlack"))
-        .onAppear() {
-            if !historyHelper.initalized {
-                historyHelper.addUserName(username: appState.username)
-                historyHelper.initForms()
-            }
-            
-        }
     }
 }
 
+/*
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView(historyHelper: HistoryHelper)
     }
-}
+}*/
