@@ -23,73 +23,36 @@ import Firebase
 import FirebaseAuth
 
 
-
-struct HomeRow: View {
-    var graphic: String
-    var caption: String
+struct HomeLogoView: View {
     @EnvironmentObject var appState: AppState
+    @State private var showingAlert = false
     var body: some View {
-        
-        VStack{
-            Image(graphic).foregroundColor(Color("Sand"))
-            Text(caption).foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
-        }.padding(10)
-            .onAppear() {
-                print(appState.username, "username")
+        HStack {
+            Spacer()
+            Button {
+                showingAlert = true
+            } label: {
+                Image(systemName: "rectangle.portrait.and.arrow.right")
+                    .foregroundColor(Color("Sand"))
+                    .font(.system(size: 50))
             }
-    }
-        
-    
-}
-
-
-struct HomeView: View {
-    @State private var path = NavigationPath()
-    @EnvironmentObject var appState: AppState
-    var body: some View {
-        NavigationStack(path: $path){
-            ZStack {
-                Rectangle().foregroundColor((Color("MatteBlack"))).ignoresSafeArea()
-                VStack {
-                    Spacer()
-                    Button {
-                        var sheetsAPI = SheetsAPI()
-                        sheetsAPI.writeToSheets()
-                    } label: {
-                        Image("mapGraphic").foregroundColor(Color("Sand"))
-                        Text("Push to sheets").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
-                    }
-                    Spacer()
-                    
-                    Button {
-                        path.append("ReportView")
-                    } label: {
-                        Image("reportGraphic").foregroundColor(Color("Sand"))
-                        Text("Report").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
-                    }
-                    Spacer()
-                    Button {
-                        path.append("HistoryView")
-                    } label: {
-                        Image("historyGraphic").foregroundColor(Color("Sand"))
-                        Text("History").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
-                    }
-                    Button {
+            .alert(isPresented:$showingAlert) {
+                Alert(
+                    title: Text("Are you sure you want to logout"),
+                    message: Text("You will have to sign back in"),
+                    primaryButton: .destructive(Text("Logout")) {
                         logoutUser()
-                    } label: {
-                        Text("Logout").foregroundColor(Color("Sand"))
-                    }
-
-                }
-                .foregroundColor(Color("MatteBlack"))
+                        print("Logging out")
+                    },
+                    secondaryButton: .cancel()
+                )
             }
-            .navigationDestination(for: String.self) { view in
-                if view == "ReportView" {
-                    ReportView()
-                } else if view == "HistoryView" {
-                    HistoryView()
-                }
-            }
+        }
+        ZStack {
+            Image("leaf").resizable().scaledToFit()
+            //Image(systemName: "house.fill")
+               // .foregroundColor(Color("MatteBlack"))
+                //.font(.system(size: 50))
         }
     }
     func logoutUser() {
@@ -106,6 +69,68 @@ struct HomeView: View {
             print("is active user?")
             appState.setLoggedOut()
             appState.removeUserName()
+        }
+    }
+}
+
+//
+
+
+struct HomeRow: View {
+    var graphic: String
+    var caption: String
+    @EnvironmentObject var appState: AppState
+    var body: some View {
+        VStack{
+            Image(graphic).foregroundColor(Color("Sand"))
+            Text(caption).foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+        }.padding(10)
+            .onAppear() {
+                print(appState.username, "username")
+            }
+    }
+        
+}
+
+
+struct HomeView: View {
+    @State private var path = NavigationPath()
+    @EnvironmentObject var appState: AppState
+    var body: some View {
+        NavigationStack(path: $path){
+            ZStack {
+                Rectangle().foregroundColor((Color("MatteBlack"))).ignoresSafeArea()
+                VStack {
+                    HomeLogoView()
+       
+                    Button {
+                        path.append("ReportView")
+                    } label: {
+                        Image(systemName: "arrow.up.doc.fill")
+                            .foregroundColor(Color("Sand"))
+                            .font(.system(size: 50))
+                        Text("Report").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                    }
+                    Spacer()
+                    Button {
+                        path.append("HistoryView")
+                    } label: {
+                        Image(systemName: "clock.fill")
+                            .foregroundColor(Color("Sand"))
+                            .font(.system(size: 50))
+                        Text("History").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                    }
+                    Spacer()
+                }
+                .foregroundColor(Color("MatteBlack"))
+            }
+            .navigationDestination(for: String.self) { view in
+                if view == "ReportView" {
+                    ReportView()
+                } else if view == "HistoryView" {
+                    HistoryView()
+                }
+            }
         }
     }
 }

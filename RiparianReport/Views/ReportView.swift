@@ -30,17 +30,37 @@ struct ReportRow: View {
             } else {
                 //.listRowBackground(Color("MatteBlack"))
             }
-            if (readReportModel.reportModels[idx].getType() == "TEXT" || readReportModel.reportModels[idx].getType() == "LOCATION")  {
+            if (readReportModel.reportModels[idx].getType() == "TEXT" || readReportModel.reportModels[idx].getType() == "LOCATION"){
                 VStack(alignment: .leading){
                     Text(readReportModel.reportModels[idx].getQuestion())
-                    TextField("Answer", text: $answer)
-                        .onChange(of: answer) { newValue in
-                            readReportModel.reportModels[idx].setAsnwer(answer: answer)
-                        }
+                        .foregroundColor(Color("Sand"))
+                        .font(.custom("Poppins-Bold", size: 16))
+                    ZStack{
+                        TextField("", text: $answer)
+                            .font(.custom("Poppins-Light", size:16))
+                            .foregroundColor(Color.accentColor)
+                            .onChange(of: answer) { newValue in
+                                readReportModel.reportModels[idx].setAsnwer(answer: answer)
+                            }
+                        /*
+                        if (answer.isEmpty) {
+                            HStack{
+                                Text("Answer")
+                                    .foregroundColor(Color.accentColor)
+                                    .font(.custom("Poppins-Light", size:16))
+                                Spacer()
+                            }
+                        }*/
+                    }
                 }
+                .listRowBackground(Color("MatteBlack"))
             } else if readReportModel.reportModels[idx].getType() == "DATE" {
                 HStack{
-                    DatePicker(readReportModel.reportModels[idx].getQuestion(), selection: $date, displayedComponents: .date)
+                    Text(readReportModel.reportModels[idx].getQuestion())
+                        .foregroundColor(Color("Sand"))
+                        .font(.custom("Poppins-Bold", size: 16))
+                    DatePicker("", selection: $date, displayedComponents: .date)
+                        .accentColor(Color.accentColor)
                         .onTapGesture {
                             let formatter = DateFormatter()
                             formatter.dateStyle = .short
@@ -61,7 +81,7 @@ struct ReportRow: View {
         
             } else if readReportModel.reportModels[idx].getType() == "MULTIPLE_CHOICE" {
                 VStack{
-                    HStack{
+                    Menu{
                         Picker(readReportModel.reportModels[idx].getQuestion(), selection: $pickerAnswer) {
                             ForEach(readReportModel.reportModels[idx].getChoices(), id: \.self) {
                                 Text($0).foregroundColor(Color.accentColor)
@@ -69,36 +89,80 @@ struct ReportRow: View {
                                 readReportModel.reportModels[idx].setAsnwer(answer: pickerAnswer)
                             }
                         }
+                    } label: {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text(readReportModel.reportModels[idx].getQuestion())
+                                    .foregroundColor(Color("Sand"))
+                                    .font(.custom("Poppins-Bold", size: 16))
+                                Spacer()
+                            }
+                            if (pickerAnswer) != "Other:" {
+                                Text(pickerAnswer).padding(.top, 1)
+                                    .font(.custom("Poppins-Light", size:16))
+                                    .foregroundColor(Color.accentColor)
+                            }
+                            
+                        }
                     }
                 }
                 
             } else if readReportModel.reportModels[idx].getType() == "MULTIPLE_CHOICE_OTHER" {
                 VStack{
-                    HStack{
-                        Picker(readReportModel.reportModels[idx].getQuestion(), selection: $pickerAnswer) {
-                            ForEach(readReportModel.reportModels[idx].getChoices(), id: \.self) {
-                                Text($0).foregroundColor(Color.accentColor)
-                            }.onChange(of: pickerAnswer) { newValue in
-                                if pickerAnswer != "Other:" {
-                                    readReportModel.reportModels[idx].setAsnwer(answer: pickerAnswer)
+                        Menu {
+                            Picker(readReportModel.reportModels[idx].getQuestion(), selection: $pickerAnswer) {
+                                ForEach(readReportModel.reportModels[idx].getChoices(), id: \.self) {
+                                    Text($0)
                                 }
+                                .onChange(of: pickerAnswer) { newValue in
+                                    if pickerAnswer != "Other:" {
+                                        readReportModel.reportModels[idx].setAsnwer(answer: pickerAnswer)
+                                    }
+                                }
+                                
+                            }
+                        } label: {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text(readReportModel.reportModels[idx].getQuestion())
+                                        .foregroundColor(Color("Sand"))
+                                        .font(.custom("Poppins-Bold", size: 16))
+                                    Spacer()
+                                }
+                                if (pickerAnswer) != "Other:" {
+                                    Text(pickerAnswer).padding(.top, 1)
+                                }
+                                
+                            }
+                        }
+                    HStack {
+                        if (pickerAnswer == "Other:") {
+                            ZStack {
+                                TextField("", text: $answer)
+                                    .font(.custom("Poppins-Light", size:16))
+                                    .foregroundColor(Color.accentColor)
+                                    .onChange(of: answer) { newValue in
+                                        readReportModel.reportModels[idx].setAsnwer(answer: answer)
+                                    }
+                                /*
+                                if (answer.isEmpty) {
+                                    HStack{
+                                        Text("Answer").foregroundColor(Color.accentColor)
+                                        Spacer()
+                                    }
+                                }*/
                             }
                             
                         }
-                    }
-                    HStack {
-                        if (pickerAnswer == "Other:") {
-                            TextField("Answer", text: $answer)
-                                .onSubmit {
-                                    readReportModel.reportModels[idx].setAsnwer(answer: answer)
-                                }
-                        }
+                        
                         
                     }
                 }
             }
+                //.listRowBackground(Color("MatteBlack"))
+            
         }
-    
+       
     }
 }
 
@@ -109,16 +173,18 @@ struct ReportView: View {
     @StateObject var readReportModel = ReadReportModel()
     @StateObject var writeReportModel = WriteReportModel()
     @EnvironmentObject var appState: AppState
+    @State private var showingAlert = false
   
     var body: some View {
         ZStack {
-            //Rectangle().foregroundColor((Color("MatteBlack"))).ignoresSafeArea()
             VStack {
                 if readReportModel.created {
                     List(readReportModel.reportModels) { reportModel in
                         ReportRow(readReportModel: readReportModel, idx: reportModel.getIdx(), answer: "", date: Date(), rowAnswered: false, pickerAnswer: "")
-                            //.listRowBackground(Color(.gray)).opacity(0.1)
+                            .listRowBackground(Color("MatteBlack"))
                     }   .listStyle(.plain)
+                        .ignoresSafeArea()
+                        .padding(.top, 1)
                        
                     
                 } else {
@@ -126,10 +192,16 @@ struct ReportView: View {
                 }
                 Spacer()
                 Button {
-                    writeReportModel.pushReportModels(reportModels: readReportModel.reportModels)
+                    showingAlert = !readReportModel.isAllAnswered();
+                    if !showingAlert {
+                        writeReportModel.pushReportModels(reportModels: readReportModel.reportModels)
+                    }
                 } label: {
                     Text("Submit Answers")
                 }
+                .alert("Please answer all fields", isPresented: $showingAlert) {
+                            Button("OK", role: .cancel) { }
+                        }
                 Spacer()
                 Button {
                     for reportModel in readReportModel.reportModels {
@@ -149,11 +221,10 @@ struct ReportView: View {
                         print(mEmail)
                         print("username****", appState.username)
                         //print("saved email", appState.username)
-                    }
+                }
             }
         }
-
-
+        .background(Color("MatteBlack"))
     }
 }
 

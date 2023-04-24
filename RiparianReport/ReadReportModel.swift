@@ -22,6 +22,8 @@ class ReadReportModel: ObservableObject {
     
     @Published var value: String? = nil
     
+    @Published var allAnswered: Bool = false
+    
     private var username = ""
     
     func addUserName(username: String) {
@@ -75,6 +77,17 @@ class ReadReportModel: ObservableObject {
                 
             }
         }
+    }
+    
+    func isAllAnswered() -> Bool {
+        var good = true;
+        for i in 0..<self.reportModels.count {
+            if (!reportModels[i].isAnswered()) {
+                good = false
+            }
+        }
+        self.allAnswered = good
+        return good
     }
     
     /*

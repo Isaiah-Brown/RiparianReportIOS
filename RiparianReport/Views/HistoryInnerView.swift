@@ -11,8 +11,10 @@ struct HistoryInnerRow: View {
     let pair: Pair
     var body: some View {
         VStack(alignment: .leading) {
-            Text(pair.question)
-            Text(pair.answer)
+            Text(pair.question).foregroundColor(Color("Sand"))
+                .font(.custom("Poppins-Bold", size: 18))
+            Text(pair.answer).foregroundColor(Color.accentColor)
+                .font(.custom("Poppins-Medium", size:18))
         }
     }
 }
@@ -21,9 +23,16 @@ struct HistoryInnerView: View {
     let questionSet: [Pair]
     var body: some View {
         //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        List(questionSet) { pair in
-            HistoryInnerRow(pair: pair)
-        }
+        ZStack {
+            List(questionSet) { pair in
+                HistoryInnerRow(pair: pair)
+                    .listRowBackground(Color("MatteBlack"))
+            }
+            .listStyle(.plain)
+            .listRowSeparator(.hidden)
+            .ignoresSafeArea()
+            .padding(.top, 1)
+        }.background(Color("MatteBlack"))
     }
 }
 

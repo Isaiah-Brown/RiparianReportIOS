@@ -9,15 +9,20 @@ import SwiftUI
 
 
 struct DateRow: View {
-    @StateObject var historyHelper: HistoryHelper
-    @State var idx: Int
-    var date: String
+    var form: Form
     var body: some View {
         NavigationLink {
-            HistoryInnerView(questionSet: historyHelper.forms[idx].questionSet)
+            HistoryInnerView(questionSet: form.questionSet)
         } label: {
             HStack {
-                Text(date)
+                Spacer()
+                Image(systemName: "doc.fill")
+                    .foregroundColor(Color("Sand"))
+                    .font(.system(size: 28))
+                Text(form.date)
+                    .foregroundColor(Color.accentColor)
+                    .font(.custom("Poppins-Bold", size: 30))
+                Spacer()
             }
         }
     }
@@ -28,40 +33,26 @@ struct HistoryView: View {
     @StateObject var historyHelper = HistoryHelper()
     
     var body: some View {
-        //if historyHelper.initalized {
+        ZStack {
+            //Color("MatteBlack").ignoresSafeArea()
             List(historyHelper.forms) { form in
-                DateRow(historyHelper: historyHelper, idx: form.getIdx(), date: form.date)
-            }.onChange(of: historyHelper.initalized) { newValue in
-                historyHelper.sortForms()
+                DateRow(form: form)
+                    .listRowBackground(Color("MatteBlack"))
             }
-        
-        /*
-        } else {
-            Text("Loading")
-        }*/
-        Button {
-            historyHelper.sortForms()
-        }label: {
-            Text("View Previous forms")
-        }
-        Spacer()
-            .onAppear() {
-                if !historyHelper.initalized {
-                    DispatchQueue.main.async {
-                        historyHelper.addUserName(username: appState.username)
-                        historyHelper.initForms()
-                        historyHelper.sortForms()
-                    }
-                    //historyHelper.addUserName(username: appState.username)
-                    //historyHelper.initForms()
-                    //historyHelper.sortForms()
-                    
-                }
-                //if !historyHelper.isSorted {
-                   // historyHelper.sortForms()
-                //}
+            .listStyle(.plain)
+            .listRowSeparator(.hidden)
+            .ignoresSafeArea()
+            .padding(.top, 1)
+            //.scrollContentBackground(.hidden)
+            }
+        .background(Color("MatteBlack"))
+        .onAppear() {
+            if !historyHelper.initalized {
+                historyHelper.addUserName(username: appState.username)
+                historyHelper.initForms()
             }
             
+        }
     }
 }
 
