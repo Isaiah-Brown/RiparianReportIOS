@@ -169,7 +169,7 @@ struct ReportRow: View {
 
 
 struct ReportView: View {
-    
+    @Binding var path: [String]
     @ObservedObject var readReportModel: ReadReportModel
     @ObservedObject var writeReportModel: WriteReportModel
     @EnvironmentObject var appState: AppState
@@ -177,77 +177,44 @@ struct ReportView: View {
     @State private var goBackToHome = false
     @State private var formCompleted = false
     
-    @ViewBuilder
+   
     var body: some View {
-        
-        if goBackToHome {
-            HomeView()
-        } else {
-                ZStack {
-                    VStack {
-                        if readReportModel.created {
-                            List(readReportModel.reportModels) { reportModel in
-                                ReportRow(readReportModel: readReportModel, idx: reportModel.getIdx(), answer: "", date: Date(), rowAnswered: false, pickerAnswer: "")
-                                    .listRowBackground(Color("MatteBlack"))
-                            }   .listStyle(.plain)
-                                .ignoresSafeArea()
-                                .padding(.top, 1)
-                               
-                        } else {
-                            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                        }
-                        Spacer()
-                        Button {
-                            showingAlert = !readReportModel.isAllAnswered();
-                            formCompleted = readReportModel.isAllAnswered();
-                            if !showingAlert {
-                                writeReportModel.pushReportModels(reportModels: readReportModel.reportModels)
-                                writeReportModel.pushToSheets(reportModels: readReportModel.reportModels)
-                            }
-                        } label: {
-                            ZStack {
-                                //Capsule()
-                                    //.strokeBorder(Color.accentColor, lineWidth: 5)
-                                    //.frame(width: 250, height: 50)
-                                Text("Submit").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color.accentColor)
-                            }
-                        }
-                        .alert("Please answer all fields", isPresented: $showingAlert) {
-                                    Button("OK", role: .cancel) { }
-                                }
-                        .alert("Report Submitted!", isPresented: $formCompleted) {
-                            Button("Back to Home", role: .cancel) {
-                                goBackToHome = true
-                            }
-                        }
-                        /*
-                        Spacer()
-                        Button {
-                            for reportModel in readReportModel.reportModels {
-                                print("answer", reportModel.getAnswer())
-                            }
-                            print("printed to console", readReportModel.reportModels.count)
-                        } label: {
-                            Text("Print to console")
-                        }
-                         */
-                        Spacer()
-                            .onAppear() {
-                                //reportModels = readReportModel.reportModels
-                                let user = Auth.auth().currentUser
-                                let mEmail = user?.email
-                                print(mEmail)
-                                print("username****", appState.username)
-                                //print("saved email", appState.username)
-                        }
+       ZStack {
+           VStack {
+               if readReportModel.created {
+                   List(readReportModel.reportModels) { reportModel in
+                       ReportRow(readReportModel: readReportModel, idx: reportModel.getIdx(), answer: "", date: Date(), rowAnswered: false, pickerAnswer: "")
+                           .listRowBackground(Color("MatteBlack"))
                     }
-                }
-                .background(Color("MatteBlack"))
+                    .listStyle(.plain)
+                    .ignoresSafeArea()
+                    .padding(.top, 1)
+                   
+                   Spacer()
+                   Button {
+                       showingAlert = !readReportModel.isAllAnswered();
+                       formCompleted = readReportModel.isAllAnswered();
+                       if !showingAlert {
+                           writeReportModel.pushReportModels(reportModels: readReportModel.reportModels)
+                           writeReportModel.pushToSheets(reportModels: readReportModel.reportModels)
+                       }
+                   } label: {
+                       ZStack {
+                           Text("Submit").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color.accentColor)
+                       }
+                   }
+                   .alert("Please answer all fields", isPresented: $showingAlert) {
+                               Button("OK", role: .cancel) { }
+                           }
+                   .alert("Report Submitted!", isPresented: $formCompleted) {
+                       Button("Back to Home", role: .cancel) {
+                           path = []
+                       }
+                   }
+               }
             }
-        }
-        
-        
-    
+        }.background(Color("MatteBlack"))
+    }
 }
 
 /*

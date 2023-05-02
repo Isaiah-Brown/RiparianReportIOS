@@ -89,7 +89,7 @@ struct HomeRow: View {
 
 
 struct HomeView: View {
-    @State private var path = NavigationPath()
+    @State private var path: [String] = []
     @EnvironmentObject var appState: AppState
     @StateObject var historyHelper = HistoryHelper()
     @StateObject var readReportModel = ReadReportModel()
@@ -137,7 +137,7 @@ struct HomeView: View {
             
             .navigationDestination(for: String.self) { view in
                 if view == "ReportView" {
-                    ReportView(readReportModel: readReportModel, writeReportModel: writeReportModel)
+                    ReportView(path: $path, readReportModel: readReportModel, writeReportModel: writeReportModel)
                 } else if view == "HistoryView" {
                     HistoryView(historyHelper: historyHelper)
                 }
