@@ -33,19 +33,31 @@ struct HistoryView: View {
     @ObservedObject var historyHelper: HistoryHelper
     
     var body: some View {
-        ZStack {
-            //Color("MatteBlack").ignoresSafeArea()
-            List(historyHelper.forms) { form in
-                DateRow(form: form)
-                    .listRowBackground(Color("MatteBlack"))
+        if !(historyHelper.forms.count == 0) {
+            ZStack {
+                List(historyHelper.forms) { form in
+                    DateRow(form: form)
+                        .listRowBackground(Color("MatteBlack"))
+                }
+                .listStyle(.plain)
+                .listRowSeparator(.hidden)
+                .ignoresSafeArea()
+                .padding(.top, 1)
+                
             }
-            .listStyle(.plain)
-            .listRowSeparator(.hidden)
-            .ignoresSafeArea()
-            .padding(.top, 1)
-            //.scrollContentBackground(.hidden)
+            .background(Color("MatteBlack"))
+        } else {
+            ZStack {
+                Rectangle()
+                    .ignoresSafeArea()
+                    .foregroundColor(Color("MatteBlack"))
+                Text("No Reports Filed")
+                    .foregroundColor(Color.accentColor)
+                    .font(.custom("Poppins-Bold", size: 24))
             }
-        .background(Color("MatteBlack"))
+            
+        }
+            
     }
 }
 

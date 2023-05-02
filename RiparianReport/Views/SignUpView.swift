@@ -41,7 +41,7 @@ struct SignUpView: View {
                             }
                         }
                         ZStack {
-                            TextField("Password", text: $password)
+                            SecureField("Password", text: $password)
                                 .frame(width: 150, height: 20)
                                 .foregroundColor(Color.accentColor)
                                 .padding(.bottom, 40)

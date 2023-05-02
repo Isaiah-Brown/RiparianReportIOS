@@ -8,8 +8,6 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseDatabaseSwift
-//import GoogleAPIClientForREST
-//import GTMSessionFetcher
 
 class WriteReportModel: ObservableObject {
     
@@ -32,42 +30,48 @@ class WriteReportModel: ObservableObject {
             if answer.count == 0 {
                 answer = "N/A"
             }
-            /*
-            if (question.contains(".") || question.contains("#") || question.contains("$") || question.contains("[") || question.contains("]") || answer.contains(".") || answer.contains("#") || answer.contains("$") || answer.contains("[") || answer.contains("]")) || question == "" || answer == "" {
-                print("*****", question, answer, i)
-            }
-             */
-            //print(i, question)
+           
             refToAdd.child(question).setValue(answer)
         }
     }
     
     
-    func pushTooGoogleSHeets(reportModels: [ReportModel]) {
+    func pushToSheets(reportModels: [ReportModel]) {
         
-    }
-    
-    
-    func pushNewValue() {
-        //ref.setValue(value)
+        var questions = [String]()
+        var answers = [String]()
         
-        let refToAdd = ref.child("users").child(username).childByAutoId()
-        refToAdd.child("Question").setValue("Answer")
-        //refToAdd.setValue("answer", forKey: "Question")
-        //ref.child("users").child(username).childByAutoId().setValue("answer", forKey: "Question")
+        for i in 0..<reportModels.count {
+            var q = reportModels[i].getQuestion()
+            var a = reportModels[i].getAnswer()
+            questions.append(q)
+            answers.append(a)
+        }
+        let jsonObJ = JSON(questions: questions, answers: answers)
         
+        let json = jsonObJ.getObjectJSON()
         
-        /*
-        do {
-            do {
-                try ref.child("users").child(username).childByAutoId().setValue("beans", forKey: "ben")
-            } catch let error as NSException {
-                print(error)
-                ref.child("users").setNilValueForKey(username)
-                ref.child("users").child(username).childByAutoId().setValue("answer", forKey: "Question")
+        let url = URL(string: "https://script.google.com/macros/s/AKfycbx8wxoe8Vv9FLgDOu9BWsxvAbglIA24l83lHuJ75RmHvfhWjBrwkrhgfRrzJ6E0bTzKdQ/exec")!
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        let dataJSON = try! JSONSerialization.data(withJSONObject: json)
+        
+        request.httpBody = dataJSON
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("in task")
+            if let data = data {
+                print("did not error")
+                return
+            } else if let error = error {
+                print("HTTP Request Failed \(error)")
             }
         }
-         */
-    }
         
+        task.resume()
+    }
+    
 }

@@ -37,18 +37,6 @@ class AppState: ObservableObject {
     
     func checkIfActiveUser() {
         
-        //Auth.auth().addStateDidChangeListener { auth, user in
-            //if user != nil {
-                //loggedIn = true;
-            //}
-        //}
-        //if Auth.auth().currentUser?.uid != nil {
-            //loggedIn = true
-        //}else{
-            //loggedIn = false
-        //}
-        
-        
         Auth.auth().addStateDidChangeListener { [self] auth, user in
             if user != nil {
                 // User is signed in. Show home screen
@@ -56,7 +44,7 @@ class AppState: ObservableObject {
                 if (username == "" || username == " ") {
                     loggedIn = false
                 }
-                print("active user")
+                print("active user", username)
             }else {
                 loggedIn = false
                 print("no active user")

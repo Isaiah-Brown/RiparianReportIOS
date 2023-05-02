@@ -29,31 +29,9 @@ class HistoryHelper: ObservableObject {
         let tmpUsername = username.replacingOccurrences(of: ".", with: ",").lowercased()
         self.username = tmpUsername
     }
-    
-    /*
-    func findDateQuestion() {
-        ref.child("Questions").observeSingleEvent(of: .value) { snapshot in
-            let allChildren = snapshot.children.allObjects as! [DataSnapshot]
-            for snap in allChildren {
-                if let type = snap.childSnapshot(forPath: "type").value as? String {
-                    print(type)
-                    if type == "DATE" {
-                        if let question = snap.childSnapshot(forPath: "question").value as? String {
-                            self.dateKey = question
-                            print(question, "date queston")
-                        }
-                    }
-                }
-                
-            }
-        }
-        initForms()
-    }
-    */
+   
     func initForms() {
-        //if !self.forms.isEmpty {
-            //self.forms = [Form]()
-        //}
+       
         print("*******   FORMS STARTED ***********")
         print(self.dateKey)
         ref.child("users").child(username).observeSingleEvent(of: .value) { snapshot in
@@ -78,12 +56,14 @@ class HistoryHelper: ObservableObject {
                 tmpForms.append(form)
                 idx += 1
             }
-            for i in 0..<tmpForms.count - 1 {
-                for j in 0..<tmpForms.count - i - 1{
-                    if (tmpForms[j].getDateNumber() < tmpForms[j+1].getDateNumber()) {
-                        tmpForms[j].setIdx(idx: j+1)
-                        tmpForms[j+1].setIdx(idx: j)
-                        tmpForms.swapAt(j, j+1)
+            if tmpForms.count != 0 {
+                for i in 0..<tmpForms.count - 1 {
+                    for j in 0..<tmpForms.count - i - 1{
+                        if (tmpForms[j].getDateNumber() < tmpForms[j+1].getDateNumber()) {
+                            tmpForms[j].setIdx(idx: j+1)
+                            tmpForms[j+1].setIdx(idx: j)
+                            tmpForms.swapAt(j, j+1)
+                        }
                     }
                 }
             }
@@ -112,7 +92,7 @@ class HistoryHelper: ObservableObject {
                 }
             }
         }
-        print("")
+     
         self.forms = tmpForms
         
         

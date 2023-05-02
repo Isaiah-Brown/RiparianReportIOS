@@ -7,25 +7,19 @@
 
 
 
-/*
-init() {
-    for familyName in  UIFont.familyNames {
-        print(familyName)
-        for fontName in UIFont.fontNames(forFamilyName: familyName) {
-            print("-- \(fontName)")
-        }
-    }
-}
- */
+
 
 import SwiftUI
 import Firebase
 import FirebaseAuth
 
 
+
+
 struct HomeLogoView: View {
     @EnvironmentObject var appState: AppState
     @State private var showingAlert = false
+
     
     var body: some View {
         HStack {
@@ -35,7 +29,7 @@ struct HomeLogoView: View {
             } label: {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
                     .foregroundColor(Color("Sand"))
-                    .font(.system(size: 50))
+                    .font(.system(size: 40))
             }
             .alert(isPresented:$showingAlert) {
                 Alert(
@@ -100,23 +94,27 @@ struct HomeView: View {
     @StateObject var historyHelper = HistoryHelper()
     @StateObject var readReportModel = ReadReportModel()
     @StateObject var writeReportModel = WriteReportModel()
+    
     var body: some View {
         NavigationStack(path: $path){
             ZStack {
                 Rectangle().foregroundColor((Color("MatteBlack"))).ignoresSafeArea()
                 VStack {
                     HomeLogoView()
-       
-                    Button {
-                        path.append("ReportView")
-                    } label: {
-                        Image(systemName: "arrow.up.doc.fill")
-                            .foregroundColor(Color("Sand"))
-                            .font(.system(size: 50))
-                        Text("Report").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                    Group {
+                        Button {
+                            path.append("ReportView")
+                        } label: {
+                            Image(systemName: "arrow.up.doc.fill")
+                                .foregroundColor(Color("Sand"))
+                                .font(.system(size: 50))
+                            Text("Report").foregroundColor(Color.accentColor).font(.custom("Poppins-Bold", size: 32))
+                        }
+                        
                     }
                     Spacer()
                     Button {
+                        historyHelper.sortForms()
                         path.append("HistoryView")
                     } label: {
                         Image(systemName: "clock.fill")
@@ -136,6 +134,7 @@ struct HomeView: View {
                 writeReportModel.addUserName(username: appState.username)
                 readReportModel.createReportModels()
             }
+            
             .navigationDestination(for: String.self) { view in
                 if view == "ReportView" {
                     ReportView(readReportModel: readReportModel, writeReportModel: writeReportModel)

@@ -8,6 +8,27 @@
 import Foundation
 
 
+
+class JSON : ObservableObject {
+    
+    var json: [String: Any]
+    
+    init(questions: [String], answers: [String]) {
+        self.json = [
+            "questions" : questions,
+            "answers" : answers
+        ]
+    }
+    
+    func getObjectJSON() -> [String: Any] {
+        return json
+    }
+    
+}
+
+
+
+
 struct ReportModel: Identifiable, Hashable {
     
     init() {
@@ -84,13 +105,5 @@ struct ReportModel: Identifiable, Hashable {
         self.answered = true
     }
 }
-
-
-
-//class ReportModelFromDataBase: Encodable {
-    //var type:String = ""
-    //var question:String = ""
-//}
-
 
 
