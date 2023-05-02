@@ -51,7 +51,7 @@ class WriteReportModel: ObservableObject {
         
         let json = jsonObJ.getObjectJSON()
         
-        let url = URL(string: "https://script.google.com/macros/s/AKfycbx8wxoe8Vv9FLgDOu9BWsxvAbglIA24l83lHuJ75RmHvfhWjBrwkrhgfRrzJ6E0bTzKdQ/exec")!
+        let url = URL(string: "https://script.google.com/macros/s/AKfycbwnkhIrso9ayxHKhMxR33dskwcYDCuys7UN_kAU8noUvO3jjNGIYIBhZLwwdmsC7Wci/exec")!
         
         var request = URLRequest(url: url)
         

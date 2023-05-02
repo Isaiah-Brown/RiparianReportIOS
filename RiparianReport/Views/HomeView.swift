@@ -127,10 +127,10 @@ struct HomeView: View {
                 .foregroundColor(Color("MatteBlack"))
             }
             .onAppear() {
-                if !historyHelper.initalized {
+                //if !historyHelper.initalized {
                     historyHelper.addUserName(username: appState.username)
                     historyHelper.initForms()
-                }
+                //}
                 writeReportModel.addUserName(username: appState.username)
                 readReportModel.createReportModels()
             }
