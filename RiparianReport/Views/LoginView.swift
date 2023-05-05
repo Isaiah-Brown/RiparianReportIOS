@@ -25,6 +25,7 @@ struct LoginView: View {
     @State var email = ""
     @State var password = ""
     @EnvironmentObject var appState: AppState
+    @State var failure = false
     var body: some View {
         NavigationStack{
             ZStack {
@@ -82,6 +83,15 @@ struct LoginView: View {
                                 Text("Login").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("MatteBlack"))
                             }
                         }
+                        .alert(isPresented:$failure) {
+                            Alert(
+                                title: Text("Login Failed"),
+                                message: Text("Please make sure you are connected to wifi and credentials are correct"),
+                                dismissButton: .cancel(Text("Ok"))
+                            )
+                        }
+                        
+                        
                         
                         Spacer()
                         Text("Don't have an account?").foregroundColor(Color("Sand"))
@@ -100,6 +110,7 @@ struct LoginView: View {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+                failure = true
             } else {
                 appState.setLoggedIn()
                 appState.saveUserName(userName: email)

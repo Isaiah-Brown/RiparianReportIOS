@@ -13,6 +13,7 @@ struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var appState: AppState
+    @State var sfailure = false
     
     var body: some View {
         NavigationStack{
@@ -68,8 +69,15 @@ struct SignUpView: View {
                                 Capsule()
                                     .fill()
                                     .frame(width: 250, height: 50)
-                                Text("Login").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("MatteBlack"))
+                                Text("Sign Up").font(.custom("Poppins-Medium", size: 32)).foregroundColor(Color("MatteBlack"))
                             }
+                        }
+                        .alert(isPresented:$sfailure) {
+                            Alert(
+                                title: Text("Sign Up Failed"),
+                                message: Text("Please make sure you are connected to wifi. Passwords must contain atleast 6 characters and emails must be properly formated. If your account already exists please navigate back to the login page"),
+                                dismissButton: .cancel(Text("Ok"))
+                            )
                         }
                         
                         Spacer()
@@ -85,6 +93,7 @@ struct SignUpView: View {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+                sfailure = true
             } else {
                 appState.setLoggedIn()
                 appState.saveUserName(userName: email)

@@ -209,12 +209,14 @@ struct ReportView: View {
                    .alert("Report Submitted!", isPresented: $formCompleted) {
                        Button("Back to Home", role: .cancel) {
                            path = []
+                           
                        }
                    }
                }
             }
         }.background(Color("MatteBlack"))
     }
+
 }
 
 /*

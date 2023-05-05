@@ -39,7 +39,7 @@ struct HomeLogoView: View {
                         logoutUser()
                         print("Logging out")
                     },
-                    secondaryButton: .cancel()
+                    secondaryButton: .cancel(Text("Cancel").foregroundColor(Color.accentColor))
                 )
             }
         }
